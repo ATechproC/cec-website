@@ -97,7 +97,7 @@ const Footer = () => {
                 </div>
 
                 {/* Contact */}
-                <div>
+                <div className='md:-ml-20'>
                     <h3 className="text-lg font-semibold mb-4">Contact</h3>
                     <div className="space-y-2 text-[#444444]">
                         <p>computer.engineering.ensab22@gmail.com</p>

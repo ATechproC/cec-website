@@ -1,7 +1,5 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { assets } from "@/constants"
 import { Github, Linkedin, Twitter, Menu, X, BookOpen, Trophy, Mic, Settings, Users, GraduationCap } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
@@ -38,7 +36,7 @@ export default function About() {
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-12">
                         <Image
-                            src={assets.founded}
+                            src={""}
                             alt="CEC Club team presentation"
                             className="w-full rounded-lg shadow-lg"
                         />
@@ -204,7 +202,7 @@ export default function About() {
                         <div className="text-center">
                             <div className="relative mb-4">
                                 <Image
-                                    src={assets.ahmed}
+                                    src={}
                                     alt="Ahmed Ben Ahmed"
                                     className="w-30 h-30 rounded-full mx-auto border-4 border-[#ffd60a] object-cover"
                                 />

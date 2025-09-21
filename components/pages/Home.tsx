@@ -4,6 +4,8 @@ import { Github, Linkedin, Twitter, Menu, X } from "lucide-react"
 import { useState } from "react"
 import Header from "../Header"
 import Footer from "../Footer"
+import { assets } from "@/data"
+import Image from "next/image"
 
 export default function Home() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -22,13 +24,20 @@ export default function Home() {
 
             {/* Hero Section */}
             <section className="relative min-h-[600px] flex items-center justify-center">
-                <div
+                {/* <div
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style={{
-                        backgroundImage: `url('/tech-club-event-with-people-at-booth-yellow-decora.jpg')`,
+                        backgroundImage: `url(${assets.hero})`,
                     }}
                 >
-                    <div className="absolute inset-0 bg-black/50"></div>
+                </div> */}
+                <div className="absolute left-0 top-0 w-[100%] h-[100%]">
+                    <Image
+                    src={assets.hero}
+                    alt="hero"
+                    className="w-[100%] h-[100%]"
+                    />
+                <div className="absolute inset-0 bg-[rgba(0,0,0,0.6)]"></div>
                 </div>
 
                 <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">

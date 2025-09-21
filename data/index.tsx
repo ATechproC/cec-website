@@ -164,7 +164,7 @@ export const teamMembers: MembersProps[] = [
     },
 ];
 
-interface EventsProps {
+export interface EventsProps {
     id: number;
     picture: StaticImageData;
     title: string;
@@ -174,50 +174,60 @@ interface EventsProps {
     speakers?: string[]
 }
 
-export const events: EventsProps[] = [
+interface EventsCECProps {
+    id: number;
+    events: EventsProps[];
+}
+
+export const eventsCEC: EventsCECProps[] = [
     {
-        "id": 1,
-        "picture": ai_data,
-        "title": "Problem Solving",
-        "date": "April 24,2025",
-        "status": "Google Meet",
-        "desc": "A session focused on problem-solving techniques and critical thinking. Discover advanced approaches to tackle complex programming challenges.",
-    },
-    {
-        "id": 2,
-        "picture": pod,
-        "title": "Hackathons: Where It All Began",
-        "date": "December 27, 2024",
-        "status": "Online",
-        "speakers": ["Hicham Maghraoui", "Othman Moussaoui", "Ismail Hamdach"],
-        "desc": "Exploring the origins and impact of hackathons with industry experts.",
-    },
-    {
-        "id": 3,
-        "picture": id_to_pd,
-        "title": "From Idea to Product",
-        "date": "April 30, 2025",
-        "status": "Google Meet",
-        "speakers": ["Bachir Cherrat", "Chakib Dekik"],
-        "desc": "A workshop detailing the journey from a concept to a market-ready product.",
-    },
-    {
-        "id": 4,
-        "picture": geeks,
-        "title": "Geeksblabla On Campus",
-        "date": "February 26, 2025",
-        "status": "ENSA Berrechid",
-        "speakers": ["Youssef El Azizi", "Mohamed Daoudi"],
-        "desc": "An engaging on-campus session in collaboration with Geeksblabla.",
-    },
-    {
-        "id": 5,
-        "picture": pr_solv,
-        "title": "Unlock the Power of Data and AI",
-        "date": "December 18, 2024",
-        "status": "Room D7, ENSA",
-        "speakers": ["Hafid (AI)", "Marwa (Data)"],
-        "desc": "An introductory session to the fascinating worlds of Data and Artificial Intelligence.",
+        "id": 2025,
+        "events": [
+            {
+                "id": 1,
+                "picture": ai_data,
+                "title": "Problem Solving",
+                "date": "April 24,2025",
+                "status": "Google Meet",
+                "desc": "A session focused on problem-solving techniques and critical thinking. Discover advanced approaches to tackle complex programming challenges.",
+            },
+            {
+                "id": 2,
+                "picture": pod,
+                "title": "Hackathons: Where It All Began",
+                "date": "December 27, 2024",
+                "status": "Online",
+                "speakers": ["Hicham Maghraoui", "Othman Moussaoui", "Ismail Hamdach"],
+                "desc": "Exploring the origins and impact of hackathons with industry experts.",
+            },
+            {
+                "id": 3,
+                "picture": id_to_pd,
+                "title": "From Idea to Product",
+                "date": "April 30, 2025",
+                "status": "Google Meet",
+                "speakers": ["Bachir Cherrat", "Chakib Dekik"],
+                "desc": "A workshop detailing the journey from a concept to a market-ready product.",
+            },
+            {
+                "id": 4,
+                "picture": geeks,
+                "title": "Geeksblabla On Campus",
+                "date": "February 26, 2025",
+                "status": "ENSA Berrechid",
+                "speakers": ["Youssef El Azizi", "Mohamed Daoudi"],
+                "desc": "An engaging on-campus session in collaboration with Geeksblabla.",
+            },
+            {
+                "id": 5,
+                "picture": pr_solv,
+                "title": "Unlock the Power of Data and AI",
+                "date": "December 18, 2024",
+                "status": "Room D7, ENSA",
+                "speakers": ["Hafid (AI)", "Marwa (Data)"],
+                "desc": "An introductory session to the fascinating worlds of Data and Artificial Intelligence.",
+            },
+        ]
     },
 ];
 
@@ -227,44 +237,60 @@ import palestine from "../public/images/projects/palestine.jpg";
 import weather from "../public/images/projects/weather.jpg";
 import books from "../public/images/projects/books.jpg";
 
-interface ProjectsProps {
-    id : number;
-    title : string;
-    desc : string;
-    link : string;
-    src : StaticImageData
+export interface ProjectsProps {
+    id: number;
+    title: string;
+    desc: string;
+    link: string;
+    src: StaticImageData
 }
 
-export const projects : ProjectsProps[] = [
-    { "id": 1, 
-        "title": "Weather App", 
-        "desc": "A web application providing real-time weather updates and forecasts. Users can search for cities to view temperature, conditions, and hourly predictions.", 
-        "link": "#", 
-        "src": weather },
-    { "id": 2, 
-        "title": "CityGuide+",
-        "desc": "A web application for discovering and navigating popular cities. Features city information and QR code integration for enhanced exploration.", 
-        "link": "#", 
-        "src": cityguide 
-    },
-    { "id": 3, 
-        "title": "Palestine", 
-        "desc": "A web application for discoverinA news portal dedicated to events, history, and information related to Palestine. Offers categorized news for easy browsing.", 
-        "link": "#", 
-        "src": palestine
-    },
-    { "id": 4, 
-        "title": "Stay.Healthy Platform", 
-        "desc": "A web application promoting a balanced lifestyle by helping users track health metrics like BMI and BMR, and offering guidance on well-being.", 
-        "link": "#", 
-        "src": healthy
-    },
-    { "id": 5, 
-        "title": "CheckBook", 
-        "desc": "A web platform for personal development book enthusiasts. Allows users to discover books, manage reading lists, and access summaries to boost their potential.", 
-        "link": "#", 
-        "src": books
-    },
+interface CECProjectsProps {
+    id : number;
+    projects : ProjectsProps[];
+}
+
+export const CECProjects: CECProjectsProps[] = [
+    {
+        "id": 2025,
+        "projects": [
+            {
+                "id": 1,
+                "title": "Weather App",
+                "desc": "A web application providing real-time weather updates and forecasts. Users can search for cities to view temperature, conditions, and hourly predictions.",
+                "link": "#",
+                "src": weather
+            },
+            {
+                "id": 2,
+                "title": "CityGuide+",
+                "desc": "A web application for discovering and navigating popular cities. Features city information and QR code integration for enhanced exploration.",
+                "link": "#",
+                "src": cityguide
+            },
+            {
+                "id": 3,
+                "title": "Palestine",
+                "desc": "A web application for discoverinA news portal dedicated to events, history, and information related to Palestine. Offers categorized news for easy browsing.",
+                "link": "#",
+                "src": palestine
+            },
+            {
+                "id": 4,
+                "title": "Stay.Healthy Platform",
+                "desc": "A web application promoting a balanced lifestyle by helping users track health metrics like BMI and BMR, and offering guidance on well-being.",
+                "link": "#",
+                "src": healthy
+            },
+            {
+                "id": 5,
+                "title": "CheckBook",
+                "desc": "A web platform for personal development book enthusiasts. Allows users to discover books, manage reading lists, and access summaries to boost their potential.",
+                "link": "#",
+                "src": books
+            },
+        ]
+    }
 ]
 
 export const assets = {

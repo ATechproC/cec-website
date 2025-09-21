@@ -1,10 +1,11 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Twitter, Menu, X, MapPin, Phone, Mail } from "lucide-react"
+import { Github, Linkedin, Twitter, MapPin, Phone, Mail } from "lucide-react"
 import { useState } from "react"
 import Header from "../Header"
 import Footer from "../Footer"
+import ContactForm from "../ContactForm"
 
 export default function Contact() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -18,26 +19,26 @@ export default function Contact() {
             />
 
             {isMobileMenuOpen && (
-                <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={() => setIsMobileMenuOpen(false)} />
+                <div className="fixed inset-0 bg-black/50 md:hidden" onClick={() => setIsMobileMenuOpen(false)} />
             )}
 
             {/* Hero Section */}
             <section className="bg-[#ffd60a] py-16 px-6">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Contact Us</h1>
-                    <p className="text-lg text-white max-w-2xl mx-auto">
+                    <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl">Contact Us</h1>
+                    <p className="max-w-2xl mx-auto text-lg text-white">
                         We'd love to hear from you! Reach out with any questions, ideas, or just to say hello!
                     </p>
                 </div>
             </section>
 
             {/* Contact Content */}
-            <section className="py-16 px-6">
+            <section className="px-6 py-16">
                 <div className="max-w-6xl mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
                         {/* Get In Touch */}
                         <div className="bg-[#1a1a1a] rounded-lg p-8">
-                            <h2 className="text-2xl font-bold text-white mb-6">Get In Touch</h2>
+                            <h2 className="mb-6 text-2xl font-bold text-white">Get In Touch</h2>
                             <p className="text-[#444444] mb-8">
                                 Feel free to reach out to us for collaboration, project ideas, or just to connect with our tech
                                 community.
@@ -49,7 +50,7 @@ export default function Contact() {
                                         <MapPin size={20} className="text-black" />
                                     </div>
                                     <div>
-                                        <h3 className="text-white font-semibold mb-1">Address</h3>
+                                        <h3 className="mb-1 font-semibold text-white">Address</h3>
                                         <p className="text-[#444444]">
                                             ENSA Berrechid Campus,
                                             <br />
@@ -63,7 +64,7 @@ export default function Contact() {
                                         <Phone size={20} className="text-black" />
                                     </div>
                                     <div>
-                                        <h3 className="text-white font-semibold mb-1">Phone</h3>
+                                        <h3 className="mb-1 font-semibold text-white">Phone</h3>
                                         <p className="text-[#444444]">(+212) 612345678</p>
                                     </div>
                                 </div>
@@ -73,14 +74,14 @@ export default function Contact() {
                                         <Mail size={20} className="text-black" />
                                     </div>
                                     <div>
-                                        <h3 className="text-white font-semibold mb-1">Email</h3>
+                                        <h3 className="mb-1 font-semibold text-white">Email</h3>
                                         <p className="text-[#444444]">computer.engineering.ensab22@gmail.com</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="mt-8">
-                                <h3 className="text-white font-semibold mb-4">Follow Us</h3>
+                                <h3 className="mb-4 font-semibold text-white">Follow Us</h3>
                                 <div className="flex space-x-4">
                                     <a
                                         href="#"
@@ -105,70 +106,14 @@ export default function Contact() {
                         </div>
 
                         {/* Contact Form */}
-                        <div className="bg-[#1a1a1a] rounded-lg p-8">
-                            <h2 className="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
-
-                            <form className="space-y-6">
-                                <div>
-                                    <label htmlFor="name" className="block text-white font-medium mb-2">
-                                        Name
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        className="w-full px-4 py-3 bg-[#333333] text-white rounded-lg border border-[#444444] focus:border-[#ffd60a] focus:outline-none transition-colors"
-                                        placeholder="Your name"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="email" className="block text-white font-medium mb-2">
-                                        Email Address
-                                    </label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        className="w-full px-4 py-3 bg-[#333333] text-white rounded-lg border border-[#444444] focus:border-[#ffd60a] focus:outline-none transition-colors"
-                                        placeholder="your.email@example.com"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="subject" className="block text-white font-medium mb-2">
-                                        Subject
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="subject"
-                                        className="w-full px-4 py-3 bg-[#333333] text-white rounded-lg border border-[#444444] focus:border-[#ffd60a] focus:outline-none transition-colors"
-                                        placeholder="What's this about?"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="message" className="block text-white font-medium mb-2">
-                                        Message
-                                    </label>
-                                    <textarea
-                                        id="message"
-                                        rows={6}
-                                        className="w-full px-4 py-3 bg-[#333333] text-white rounded-lg border border-[#444444] focus:border-[#ffd60a] focus:outline-none transition-colors resize-vertical"
-                                        placeholder="Tell us more about your message..."
-                                    ></textarea>
-                                </div>
-
-                                <Button className="w-full bg-[#ffd60a] text-black hover:bg-[#ffd60a]/90 font-semibold py-3 text-lg">
-                                    SEND MESSAGE
-                                </Button>
-                            </form>
-                        </div>
+                        <ContactForm />
                     </div>
 
                     {/* Map Section */}
                     <div className="mt-16">
-                        <h2 className="text-3xl font-bold text-white text-center mb-8">Find Us</h2>
+                        <h2 className="mb-8 text-3xl font-bold text-center text-white">Find Us</h2>
                         <div className="bg-[#1a1a1a] rounded-lg p-4 overflow-hidden">
-                            <div className="w-full h-96 rounded-lg overflow-hidden">
+                            <div className="w-full overflow-hidden rounded-lg h-96">
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.8234567890123!2d-7.5876543210987654!3d33.2654321098765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sENSA%20Berrechid!5e0!3m2!1sen!2sma!4v1234567890123!5m2!1sen!2sma"
                                     width="100%"

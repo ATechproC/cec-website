@@ -65,7 +65,7 @@ export default function About() {
             />
 
             {isMobileMenuOpen && (
-                <div className="fixed inset-0 z-40 bg-black/50 md:hidden" onClick={() => setIsMobileMenuOpen(false)} />
+                <div className="fixed inset-0 bg-black/50 md:hidden" onClick={() => setIsMobileMenuOpen(false)} />
             )}
 
             {/* Hero Section */}

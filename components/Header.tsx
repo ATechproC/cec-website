@@ -14,13 +14,13 @@ interface HeaderProps {
 const Header = ({ isMobileMenuOpen, setIsMobileMenuOpen }: HeaderProps) => {
 
     return <header className="bg-[#121212] px-6 py-4 fixed top-0 w-[100%] z-20">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="flex items-center justify-between mx-auto max-w-7xl">
             <div className="text-2xl font-bold">
-                <span className="text-[#ffd60a]">CEC</span>
+                <span className="text-[#ffd60a] mr-1">CEC</span>
                 <span className="text-white">CLUB</span>
             </div>
 
-            <NavLinks className='md:flex items-center space-x-8' />
+            <NavLinks className='items-center space-x-8 md:flex max-sm:hidden' />
 
             <div className="flex items-center gap-4 ">
                 <Button className="hidden md:block bg-[#ffd60a] text-black hover:bg-[#ffd60a]/90 font-semibold px-6">

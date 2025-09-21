@@ -37,7 +37,7 @@ export default function Home() {
                     alt="hero"
                     className="w-[100%] h-[100%]"
                     />
-                <div className="absolute inset-0 bg-[rgba(0,0,0,0.6)]"></div>
+                <div className="absolute inset-0 bg-dark-1"></div>
                 </div>
 
                 <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">

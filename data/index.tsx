@@ -2,7 +2,7 @@
 
 // start of team members :
 
-import ahmed from "../public/images/team/achraf.png";
+import ahmed from "../public/images/team/ahmed.png";
 import achraf from "../public/images/team/achraf.png";
 import aitlhaj from "../public/images/team/aitlhaj.png";
 import asmaa from "../public/images/team/asmaa.png";
@@ -28,7 +28,7 @@ import pod from "../public/images/events/pod.jpg";
 import pr_solv from "../public/images/events/pr-solv.png";
 import { StaticImageData } from "next/image";
 
-interface TeamProps {
+export interface TeamProps {
     id: number;
     name: string;
     title: string;

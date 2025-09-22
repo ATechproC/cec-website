@@ -14,7 +14,7 @@ const NavLinks = ({ children, className }: { children?: ReactNode, className: st
         <nav className={className}>
             {links.map(({ link, name }) => (
                 <Link
-                    style={{ color: pathName === link ? "#ffd60a" : "" }}
+                    style={{color : pathName === link ? "#ffd60a" : ""}}
                     key={nanoid()}
                     href={link}
                     className="text-white hover:text-[#ffd60a] transition-colors"

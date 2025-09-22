@@ -7,22 +7,26 @@ import Footer from "../Footer"
 import Image from "next/image"
 import { CECProjects, ProjectsProps } from "@/data"
 import Link from "next/link"
+import { useSelectYear } from "@/providers/SelectYearProvider"
+import { useMobileMenu } from "@/providers/MobileMenuProvider"
 
 const ShowProjects = ({ year }: { year: number }) => {
-    const [projects, setProjects] = useState([] as ProjectsProps[]);
+    const [projects, setProjects] = useState<ProjectsProps[] | null>(null);
 
     useEffect(() => {
         for (let i = 0; i < CECProjects.length; i++) {
             if (CECProjects[i].id === year) {
                 setProjects(CECProjects[i].projects);
                 break;
+            }else {
+                setProjects(null)
             }
         }
-    }, [])
+    }, [year])
 
     return <div
         className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map(({ id, src, title, desc, link }) => <div key={id}
+        {projects?.map(({ id, src, title, desc, link }) => <div key={id}
             className="bg-[#1a1a1a] flex flex-col justify-between rounded-lg overflow-hidden border border-[#333333] hover:border-[#ffd60a] transition-colors">
             <div className="relative aspect-video bg-gradient-to-br from-blue-500 to-blue-700 h-[210px]">
                 <Image
@@ -45,15 +49,14 @@ const ShowProjects = ({ year }: { year: number }) => {
 }
 
 export default function Projects() {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const {isMobileMenuOpen, setIsMobileMenuOpen} = useMobileMenu();
+
+    const {year} = useSelectYear();
 
     return (
         <div className="min-h-screen bg-[#121212]">
             {/* Header */}
-            <Header
-                setIsMobileMenuOpen={setIsMobileMenuOpen}
-                isMobileMenuOpen={isMobileMenuOpen}
-            />
+            <Header />
 
             {isMobileMenuOpen && (
                 <div className="fixed inset-0 bg-black/50 md:hidden" onClick={() => setIsMobileMenuOpen(false)} />
@@ -75,7 +78,7 @@ export default function Projects() {
             {/* Projects*/}
             <section className="px-6 pb-16">
                 <div className="mx-auto max-w-7xl">
-                    <ShowProjects year={2025} />
+                    <ShowProjects year={year} />
                 </div>
             </section>
 

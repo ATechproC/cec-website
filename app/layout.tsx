@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import SelectYearProvider from "@/providers/SelectYearProvider";
+import { Spinner } from "@/components/Loader";
+import LoaderProvider from "@/providers/LoaderProvider";
+import MobileMenuProvider from "@/providers/MobileMenuProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,12 +27,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable}  w-screen overflow-x-hidden md:mt-10`}
-      >
-        {children}
-      </body>
-    </html>
+    <MobileMenuProvider>
+      <SelectYearProvider>
+        <LoaderProvider>
+          <html lang="en">
+            <body
+              className={`${geistSans.variable} ${geistMono.variable}  w-screen overflow-x-hidden md:mt-10`}
+            >
+              {children}
+              <Spinner />
+            </body>
+          </html>
+        </LoaderProvider>
+      </SelectYearProvider>
+    </MobileMenuProvider>
   );
 }

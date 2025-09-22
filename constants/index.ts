@@ -1,3 +1,8 @@
+import spinner from "../public/images/spinner.svg";
+
+export const assets = {
+    spinner
+}
 interface LinksProps {
     link: string;
     name: string;
@@ -118,7 +123,7 @@ interface MainActivitiesProps {
     activities : ActivitiesProps[];
 }
 
-export const mainActivities: MainActivitiesProps[] = [
+export const mainActivities : MainActivitiesProps[] = [
     {
         "id" : 1,
         "title" : "What We Do",
@@ -161,5 +166,33 @@ export const mainActivities: MainActivitiesProps[] = [
                 "desc": "We pair experienced members with newcomers to provide guidance, support, and knowledge transfer.",
             }
         ]
+    },
+]
+
+interface FaqsProps {
+    question : string;
+    answer : string;
+}
+
+export const faqs : FaqsProps[] = [
+    {
+        question: "Is there a membership fee?",
+        answer:
+            "No, CEC CLUB membership is completely free for all enrolled students at CEC Narowal. We believe in making tech education and networking accessible to everyone.",
+    },
+    {
+        question: "Do I need prior experience to join?",
+        answer:
+            "Not at all! We welcome students of all skill levels, from complete beginners to advanced programmers. Our community is designed to help everyone learn and grow together.",
+    },
+    {
+        question: "How often does the club meet?",
+        answer:
+            "We hold regular meetings twice a month, along with special workshops, hackathons, and tech talks throughout the semester. All events are announced in advance through our communication channels.",
+    },
+    {
+        question: "Can I join if I'm not a computer engineering student?",
+        answer:
+            "Yes! While we're based in the Computer Engineering department, we welcome students from all disciplines who have an interest in technology and want to learn programming, web development, or other tech skills.",
     },
 ]

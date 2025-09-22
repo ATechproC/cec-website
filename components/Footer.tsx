@@ -2,16 +2,16 @@ import { Github, Linkedin, Twitter } from 'lucide-react'
 import React from 'react'
 
 const Footer = () => {
-    return <footer className="bg-[#121212] text-white px-6 py-12">
-        <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    return <footer className="bg-[#121212] text-white px-6 pt-12 pb-5">
+        <div className="mx-auto max-w-7xl">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
                 {/* Logo and Description */}
                 <div className="md:col-span-1">
-                    <div className="text-2xl font-bold mb-4">
-                        <span className="text-[#ffd60a]">CEC</span>
+                    <div className="mb-4 text-2xl font-bold">
+                        <span className="text-[#ffd60a] mr-1">CEC</span>
                         <span className="text-white">CLUB</span>
                     </div>
-                    <p className="text-[#444444] mb-6">Technology we love it, live it, share it</p>
+                    <p className="text-[#444444] mb-6 text-sm">Technology we love it, live it, share it</p>
                     <div className="flex space-x-4">
                         <a
                             href="#"
@@ -44,7 +44,7 @@ const Footer = () => {
 
                 {/* Quick Links */}
                 <div>
-                    <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+                    <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
                     <ul className="space-y-2">
                         <li>
                             <a href="#" className="text-[#444444] hover:text-[#ffd60a] transition-colors">
@@ -71,7 +71,7 @@ const Footer = () => {
 
                 {/* Resources */}
                 <div>
-                    <h3 className="text-lg font-semibold mb-4">Resources</h3>
+                    <h3 className="mb-4 text-lg font-semibold">Resources</h3>
                     <ul className="space-y-2">
                         <li>
                             <a href="#" className="text-[#444444] hover:text-[#ffd60a] transition-colors">
@@ -98,7 +98,7 @@ const Footer = () => {
 
                 {/* Contact */}
                 <div className='md:-ml-20'>
-                    <h3 className="text-lg font-semibold mb-4">Contact</h3>
+                    <h3 className="mb-4 text-lg font-semibold">Contact</h3>
                     <div className="space-y-2 text-[#444444]">
                         <p>computer.engineering.ensab22@gmail.com</p>
                         <p>(+212) 612345678</p>
@@ -114,7 +114,7 @@ const Footer = () => {
             {/* Bottom Bar */}
             <div className="border-t border-[#333333] mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p className="text-[#444444] text-sm">© 2025 Ignite Tech Hub. All rights reserved.</p>
-                <div className="flex space-x-6 mt-4 md:mt-0">
+                <div className="flex mt-4 space-x-6 md:mt-0">
                     <a href="#" className="text-[#444444] hover:text-[#ffd60a] text-sm transition-colors">
                         Privacy Policy
                     </a>

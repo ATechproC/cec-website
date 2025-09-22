@@ -1,21 +1,47 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Header from "../Header"
 import Footer from "../Footer"
 import { assets } from "@/data"
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
+import { useSelectYear } from "@/providers/SelectYearProvider"
+import { useMobileMenu } from "@/providers/MobileMenuProvider"
+
+const ShowHero = ({ year }: { year: number }) => {
+
+    const [source, setSource] = useState<StaticImageData | string>("")
+
+    useEffect(() => {
+        for (let i = 0; i < assets.length; i++) {
+            if (assets[i].id === year) {
+                setSource(assets[i].hero);
+                break;
+            } else {
+                setSource("/placeholder.svg");
+            }
+        }
+    }, [year]);
+
+    return <div className="w-[100%] h-[100%]">
+        <Image
+            src={source || "/placeholder.svg"}
+            alt="hero"
+            className="object-cover w-full h-full"
+            fill
+        />
+    </div>
+}
 
 export default function Home() {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const {isMobileMenuOpen, setIsMobileMenuOpen} = useMobileMenu();
+
+    const { year } = useSelectYear();
 
     return (
         <div className="min-h-screen bg-[#121212]">
-            {/* Header */}
-            <Header 
-            setIsMobileMenuOpen={setIsMobileMenuOpen} 
-            isMobileMenuOpen={isMobileMenuOpen}
-            />
+            
+            <Header />
 
             {isMobileMenuOpen && (
                 <div className="fixed inset-0 md:hidden" onClick={() => setIsMobileMenuOpen(false)} />
@@ -23,16 +49,12 @@ export default function Home() {
 
             {/* Hero Section */}
             <section className="relative min-h-[600px] flex items-center justify-center">
-                <div className="absolute left-0 top-0 w-[100%] h-[100%]">
-                    <Image
-                    src={assets.hero}
-                    alt="hero"
-                    className="w-[100%] h-[100%]"
-                    />
-                <div className="absolute inset-0 bg-dark-1"></div>
+                <div className="absolute left-0 top-0 w-[100%] h-[100%] mt-9">
+                    <ShowHero year={year} />
+                    <div className="absolute inset-0 bg-dark-1"></div>
                 </div>
 
-                <div className="relative z-10 max-w-4xl px-6 mx-auto text-center">
+                <div className="relative z-10 max-w-4xl px-6 mx-auto text-center max-sm:mt-20">
                     <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">
                         Welcome to{" "}
                         <span className="text-[#ffd60a] relative">
@@ -68,7 +90,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Footer */}
             <Footer />
         </div>
     )

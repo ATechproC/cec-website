@@ -13,7 +13,8 @@ module.exports = {
         foreground: "hsl(var(--foreground))",
         dark : {
           1 : "rgba(0,0,0,0.6)"
-        }
+        },
+        main : "#ffd60a",
       },
     },
   },

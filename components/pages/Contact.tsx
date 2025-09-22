@@ -6,17 +6,15 @@ import { useState } from "react"
 import Header from "../Header"
 import Footer from "../Footer"
 import ContactForm from "../ContactForm"
+import { useMobileMenu } from "@/providers/MobileMenuProvider"
 
 export default function Contact() {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const {isMobileMenuOpen, setIsMobileMenuOpen} = useMobileMenu();
 
     return (
         <div className="min-h-screen bg-[#121212]">
             {/* Header */}
-            <Header 
-            setIsMobileMenuOpen={setIsMobileMenuOpen} 
-            isMobileMenuOpen={isMobileMenuOpen}
-            />
+            <Header />
 
             {isMobileMenuOpen && (
                 <div className="fixed inset-0 bg-black/50 md:hidden" onClick={() => setIsMobileMenuOpen(false)} />

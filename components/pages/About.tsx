@@ -1,7 +1,7 @@
 "use client"
 
 import { Github, Linkedin } from "lucide-react"
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 import { useEffect, useState } from "react"
 import Header from "../Header"
 import Footer from "../Footer"
@@ -9,21 +9,46 @@ import { assets, teamMembers, TeamProps } from "@/data"
 import { mainActivities, missionInfo, statistics } from "@/constants"
 import GetIcons from "../GetIcons"
 
+import { useSelectYear } from "@/providers/SelectYearProvider"
+import { useMobileMenu } from "@/providers/MobileMenuProvider"
+
+// const ShowImage = ({ year }: { year: number }) => {
+
+//     const [source, setSource] = useState<StaticImageData | null>(null)
+
+//     useEffect(() => {
+//         for(let i = 0; i < assets.length; i++) {
+//             if(assets[i].id === year) {
+//                 setSource(assets[i].founded);
+//                 break;
+//             }
+//         }
+//     }, [year]);
+
+//     return <Image
+//         src={source}
+//         alt="hero"
+//         className="w-[100%] h-[100%]"
+//     />
+// }
+
 const ShowTeamMembers = ({ year }: { year: number }) => {
 
-    const [members, setMembers] = useState([] as TeamProps[]);
+    const [members, setMembers] = useState<TeamProps[] | null>(null);
 
     useEffect(() => {
         for (let i = 0; i < teamMembers.length; i++) {
             if (year === teamMembers[i].id) {
                 setMembers(teamMembers[i]["team"]);
                 break;
+            }else {
+                setMembers(null);
             }
         }
-    }, []);
+    }, [year]);
 
 
-    return members.map(({ id, name, title, desc, profile, linkedIn, gitHub }) => <div
+    return members?.map(({ id, name, title, desc, profile, linkedIn, gitHub }) => <div
         key={id}
         className="text-center">
         <div className="relative mb-4">
@@ -54,15 +79,14 @@ const ShowTeamMembers = ({ year }: { year: number }) => {
 
 export default function About() {
 
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+    const {isMobileMenuOpen, setIsMobileMenuOpen} = useMobileMenu();
+
+    const { year } = useSelectYear();
 
     return (
         <div className="min-h-screen bg-[#121212]">
             {/* Header */}
-            <Header
-                setIsMobileMenuOpen={setIsMobileMenuOpen}
-                isMobileMenuOpen={isMobileMenuOpen}
-            />
+            <Header />
 
             {isMobileMenuOpen && (
                 <div className="fixed inset-0 bg-black/50 md:hidden" onClick={() => setIsMobileMenuOpen(false)} />
@@ -82,32 +106,33 @@ export default function About() {
             <section className="px-6 py-16">
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-12">
+                        {/* <ShowImage year={year} /> */}
                         <Image
-                            src={assets.founded}
-                            alt="CEC Club team presentation"
-                            className="w-full rounded-lg shadow-lg"
+                            src={assets[0].founded}
+                            alt="hero"
+                            className="w-[100%] h-[100%]"
                         />
                     </div>
 
-                        {missionInfo.map(({ id, title, desc1, desc2, missions }) => <div
+                    {missionInfo.map(({ id, title, desc1, desc2, missions }) => <div
                         className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2"
-                            key={id}>
-                            <div>
-                                <h2 className="mb-6 text-3xl font-bold text-white"> {title} </h2>
-                                <p className="text-[#444444] text-lg leading-relaxed mb-6"> {desc1} </p>
-                                <p className="text-[#444444] text-lg leading-relaxed"> {desc2} </p>
-                            </div>
-                            <div className="space-y-8">
-                                {
-                                    missions.map(({ id, title, desc }) => <div key={id}
-                                        className="bg-[#1a1a1a] p-6 rounded-lg">
-                                        <h3 className="text-xl font-semibold text-[#ffd60a] mb-3"> {title} </h3>
-                                        <p className="text-[#444444]"> {desc} </p>
-                                    </div>)
-                                }
-                            </div>
+                        key={id}>
+                        <div>
+                            <h2 className="mb-6 text-3xl font-bold text-white"> {title} </h2>
+                            <p className="text-[#444444] text-lg leading-relaxed mb-6"> {desc1} </p>
+                            <p className="text-[#444444] text-lg leading-relaxed"> {desc2} </p>
                         </div>
-                        )}
+                        <div className="space-y-8">
+                            {
+                                missions.map(({ id, title, desc }) => <div key={id}
+                                    className="bg-[#1a1a1a] p-6 rounded-lg">
+                                    <h3 className="text-xl font-semibold text-[#ffd60a] mb-3"> {title} </h3>
+                                    <p className="text-[#444444]"> {desc} </p>
+                                </div>)
+                            }
+                        </div>
+                    </div>
+                    )}
 
                     {/* Statistics Section */}
                     <div className="mt-16 text-center">
@@ -130,8 +155,8 @@ export default function About() {
 
             {/* What We Do Section */}
             <section className="py-16 px-6 bg-[#121212]">
-                {mainActivities.map(({id, title, desc, activities}) => <div key={id} 
-                className="max-w-6xl mx-auto">
+                {mainActivities.map(({ id, title, desc, activities }) => <div key={id}
+                    className="max-w-6xl mx-auto">
                     <div className="mb-12 text-center">
                         <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl"> {title} </h2>
                         <p className="text-lg text-blue-400"> {desc} </p>
@@ -149,7 +174,7 @@ export default function About() {
                         }
                     </div>
                 </div>)}
-                
+
             </section>
 
             {/* Leadership Team Section */}
@@ -161,7 +186,7 @@ export default function About() {
                     </div>
 
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 w-[80%] m-auto">
-                        <ShowTeamMembers year={2025} />
+                        <ShowTeamMembers year={year} />
                     </div>
                 </div>
             </section>

@@ -8,6 +8,12 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-white bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .center-element {
+    @apply w-[90%] mx-auto;
   }
 }

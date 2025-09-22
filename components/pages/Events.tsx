@@ -7,30 +7,34 @@ import { useEffect, useState } from "react"
 import Header from "../Header"
 import Footer from "../Footer"
 import { eventsCEC, EventsProps } from "@/data"
+import { useSelectYear } from "@/providers/SelectYearProvider"
+import { useMobileMenu } from "@/providers/MobileMenuProvider"
 
 const ShowCECEvents = ({ year }: { year: number }) => {
 
-    const [events, setEvents] = useState([] as EventsProps[])
+    const [events, setEvents] = useState<EventsProps[] | null>(null)
 
     useEffect(() => {
         for(let i = 0; i < eventsCEC.length; i++) {
             if(eventsCEC[i].id === year) {
                 setEvents(eventsCEC[i].events);
                 break;
+            }else {
+                setEvents(null)
             }
         }
-    }, []);
+    }, [year]);
 
-    return events.map(({id, picture, title, date, status, speakers, desc}) => <div key={id} className="flex items-center px-4 py-3 rounded-lg bg-dark-1 w-[90%] m-auto">
-        <div className="w-1/3">
+    return events?.map(({id, picture, title, date, status, speakers, desc}) => <div key={id} className="flex items-center px-4 py-3 rounded-lg bg-dark-1 w-[90%] m-auto max-sm:flex max-sm:flex-col max-sm:gap-2">
+        <div className="md:w-1/3">
             <Image
                 src={picture || "/placeholder.svg"}
                 alt={title}
-                className="object-cover w-full max-h-[300px]"
+                className="object-cover w-full max-h-[300px]" 
             />
         </div>
-        <div className="w-2/3 p-6">
-            <h3 className="mb-3 text-xl font-bold text-white">{title}</h3>
+        <div className="w-2/3 md:p-6">
+            <h3 className="mb-3 text-xl font-bold text-white max-sm:text-sm">{title}</h3>
             <div className="flex items-center text-[#ffd60a] text-sm mb-2">
                 <Calendar size={14} className="mr-2" />
                 {date}
@@ -45,7 +49,7 @@ const ShowCECEvents = ({ year }: { year: number }) => {
                 </div>
             )}
             <p className="text-[#444444] mb-6 text-sm leading-relaxed">{desc}</p>
-            <Button className="bg-[#ffd60a] text-black hover:bg-[#ffd60a]/90 font-semibold text-sm px-6">
+            <Button className="bg-[#ffd60a] text-black max-sm:mb-3 hover:bg-[#ffd60a]/90 font-semibold text-sm px-6">
                 LEARN MORE
             </Button>
         </div>
@@ -55,15 +59,14 @@ const ShowCECEvents = ({ year }: { year: number }) => {
 
 export default function Events() {
 
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const {isMobileMenuOpen, setIsMobileMenuOpen} = useMobileMenu();
+
+    const {year} = useSelectYear();
 
     return (
         <div className="min-h-screen bg-[#121212]">
             {/* Header */}
-            <Header
-                setIsMobileMenuOpen={setIsMobileMenuOpen}
-                isMobileMenuOpen={isMobileMenuOpen}
-            />
+            <Header />
 
             {isMobileMenuOpen && (
                 <div className="fixed inset-0 bg-black/50 md:hidden" onClick={() => setIsMobileMenuOpen(false)} />
@@ -98,88 +101,7 @@ export default function Events() {
                     </div>
 
                     <div className="space-y-8">
-                        {/* {pastEvents.map((event) => (
-                            <div
-                                key={event.id}
-                                className={`border-2 border-[#ffd60a] rounded-lg overflow-hidden ${event.featured ? "lg:flex lg:items-center" : "max-w-2xl"
-                                    }`}
-                            >
-                                {event.featured ? (
-                                    // Featured event layout
-                                    <>
-                                        <div className="lg:w-1/2">
-                                            <div className="relative">
-                                                <Image
-                                                    src={event.image || "/placeholder.svg"}
-                                                    alt={event.title}
-                                                    className="object-cover w-full h-64 lg:h-80"
-                                                />
-                                                <div className="absolute top-4 right-4">
-                                                    <span className="bg-[#ffd60a] text-black px-3 py-1 rounded text-sm font-bold">FEATURED</span>
-                                                </div>
-                                                <div className="absolute text-white bottom-4 left-4">
-                                                    <div className="flex items-center mb-1 text-sm">
-                                                        <Calendar size={14} className="mr-2" />
-                                                        {event.date}
-                                                    </div>
-                                                    <div className="flex items-center text-sm">
-                                                        <Clock size={14} className="mr-2" />
-                                                        {event.time}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="p-8 lg:w-1/2">
-                                            <h3 className="mb-4 text-2xl font-bold text-white">{event.title}</h3>
-                                            <div className="flex items-center text-[#ffd60a] text-sm mb-2">
-                                                <Calendar size={16} className="mr-2" />
-                                                {event.date} - {event.time}
-                                            </div>
-                                            <div className="flex items-center text-[#ffd60a] text-sm mb-6">
-                                                <MapPin size={16} className="mr-2" />
-                                                {event.location}
-                                            </div>
-                                            <p className="text-[#444444] mb-8 leading-relaxed">{event.description}</p>
-                                            <Button className="bg-[#ffd60a] text-black hover:bg-[#ffd60a]/90 font-semibold px-8">
-                                                EVENT DETAILS
-                                            </Button>
-                                        </div>
-                                    </>
-                                ) : (
-                                    // Regular event layout
-                                    <div className="flex">
-                                        <div className="w-1/3">
-                                            <Image
-                                                src={event.image || "/placeholder.svg"}
-                                                alt={event.title}
-                                                className="object-cover w-full h-48"
-                                            />
-                                        </div>
-                                        <div className="w-2/3 p-6">
-                                            <h3 className="mb-3 text-xl font-bold text-white">{event.title}</h3>
-                                            <div className="flex items-center text-[#ffd60a] text-sm mb-2">
-                                                <Calendar size={14} className="mr-2" />
-                                                {event.date}
-                                            </div>
-                                            <div className="flex items-center text-[#ffd60a] text-sm mb-4">
-                                                <MapPin size={14} className="mr-2" />
-                                                {event.location}
-                                            </div>
-                                            {event.speakers && (
-                                                <div className="text-[#444444] text-sm mb-4">
-                                                    <strong>Speakers:</strong> {event.speakers.join(", ")}
-                                                </div>
-                                            )}
-                                            <p className="text-[#444444] mb-6 text-sm leading-relaxed">{event.description}</p>
-                                            <Button className="bg-[#ffd60a] text-black hover:bg-[#ffd60a]/90 font-semibold text-sm px-6">
-                                                LEARN MORE
-                                            </Button>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                        ))} */}
-                        <ShowCECEvents year={2025} />
+                        <ShowCECEvents year={year} />
                     </div>
                 </div>
             </section>

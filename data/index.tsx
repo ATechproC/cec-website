@@ -246,8 +246,8 @@ export interface ProjectsProps {
 }
 
 interface CECProjectsProps {
-    id : number;
-    projects : ProjectsProps[];
+    id: number;
+    projects: ProjectsProps[];
 }
 
 export const CECProjects: CECProjectsProps[] = [
@@ -293,9 +293,18 @@ export const CECProjects: CECProjectsProps[] = [
     }
 ]
 
-export const assets = {
-    hero,
-    founded,
+interface AssetsProps {
+    id : number;
+    hero : StaticImageData;
+    founded: StaticImageData;
 }
+
+export const assets : AssetsProps[] = [
+    {
+        id: 2025,
+        hero,
+        founded,
+    }
+]
 
 // end of 2025's data :

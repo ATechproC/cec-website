@@ -77,7 +77,7 @@ const Header = () => {
                                 style={{color : pathName === link ? "#ffd60a" : ""}}
                                 className="text-white hover:text-[#ffd60a] transition-colors block py-1 text-sm sm:text-base"
                             >
-                                {name}{" "}
+                                {name}
                             </Link>
                         ))}
                         <span className="inline-block w-[80%] relative left-1/2 -translate-x-1/2 bg-[#ffd60a] h-[2px] sm:h-[3px]" />

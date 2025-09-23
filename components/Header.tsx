@@ -18,7 +18,7 @@ const Header = () => {
     const pathName = usePathname()
 
     return (
-        <header className="bg-[#121212] px-4 sm:px-6 py-3 sm:py-4 fixed top-0 w-full z-50">
+        <header className="bg-[#121212] px-4 sm:px-6 py-3 sm:py-4 fixed top-0 w-screen z-50">
             <div className="flex items-center justify-between mx-auto max-w-7xl">
                 <div className="flex-shrink-0 text-lg font-bold sm:text-xl md:text-2xl">
                     <span className="text-[#ffd60a] mr-1">CEC</span>

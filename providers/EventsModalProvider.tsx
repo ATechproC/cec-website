@@ -1,23 +1,7 @@
 "use client";
 
-import { createContext, Dispatch, SetStateAction, useContext, useState } from "react";
-
-interface StatesProps {
-    title: string;
-    description: string;
-    isEventsModalOpen: boolean;
-}
-
-interface SetStatesProps {
-    setTitle: Dispatch<SetStateAction<string>>;
-    setDescription: Dispatch<SetStateAction<string>>;
-    setIsEventsModalOpen: Dispatch<SetStateAction<boolean>>;
-}
-
-interface EventsModalProps {
-    states: StatesProps;
-    setStates: SetStatesProps;
-}
+import { EventsModalProps, SetStatesProps, StatesProps } from "@/types";
+import { createContext, useContext, useState } from "react";
 
 const EventsModalContext = createContext({} as EventsModalProps)
 

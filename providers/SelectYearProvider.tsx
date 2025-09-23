@@ -1,11 +1,7 @@
 "use client";
 
-import { createContext, SetStateAction, useContext, useState } from "react";
-
-interface SelectYearProps {
-    year : number;
-    setYear : React.Dispatch<SetStateAction<number>>
-}
+import { SelectYearProps } from "@/types";
+import { createContext, useContext, useState } from "react";
 
 const SelectYearContext = createContext({} as SelectYearProps)
 

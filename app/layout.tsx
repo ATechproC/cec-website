@@ -5,7 +5,6 @@ import SelectYearProvider from "@/providers/SelectYearProvider";
 import { Spinner } from "@/components/Loader";
 import LoaderProvider from "@/providers/LoaderProvider";
 import MobileMenuProvider from "@/providers/MobileMenuProvider";
-import { assets } from "@/constants";
 import EventsModalProvider from "@/providers/EventsModalProvider";
 
 const geistSans = Geist({

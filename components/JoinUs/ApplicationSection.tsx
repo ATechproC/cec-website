@@ -16,8 +16,7 @@ export function ApplicationSection() {
     const [isSuccess, setIsSuccess] = useState(false)
     const [result, setResult] = useState<string | null>(null)
 
-    const accessKey = process.env.NEXT_PUBLIC_API_KEY // Replace with your Web3Forms Access Key
-
+    const accessKey = process.env.NEXT_PUBLIC_API_KEY
     const { submit: onSubmit } = useWeb3Forms({
         access_key: accessKey!,
         settings: {
@@ -35,7 +34,6 @@ export function ApplicationSection() {
         },
     })
 
-    // Watch technical interests to handle checkbox changes
     const technicalInterests = watch("technicalInterests") || []
 
     const handleInterestChange = (interest: string, checked: boolean) => {
@@ -85,7 +83,6 @@ export function ApplicationSection() {
                         </div>
                     </div>
 
-                    {/* Right side - Form */}
                     <div className="p-8 bg-white border rounded-lg shadow-sm">
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                             <div className="space-y-2">
@@ -176,7 +173,6 @@ export function ApplicationSection() {
                                 Submit Application
                             </Button>
 
-                            {/* Result message */}
                             {result && (
                                 <p className={`mt-4 text-center font-medium ${isSuccess ? "text-green-600" : "text-red-600"}`}>
                                     {result}

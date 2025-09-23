@@ -1,10 +1,6 @@
 import { Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-
-interface CardInfoProps {
-    title: string;
-    description: string;
-}
+import { CardInfoProps } from "@/types";
 
 const CardInfo = ({ title, description }: CardInfoProps) => {
     return <Card className="p-8 text-center transition-shadow duration-300 hover:shadow-lg">

@@ -1,11 +1,8 @@
 "use client";
 
-import { createContext, Dispatch, SetStateAction, useContext, useState } from "react";
+import { LoadingProps } from "@/types";
+import { createContext, useContext, useState } from "react";
 
-interface LoadingProps {
-    isLoading: boolean;
-    setIsLoading: Dispatch<SetStateAction<boolean>>
-}
 
 const LoaderContext = createContext({} as LoadingProps);
 

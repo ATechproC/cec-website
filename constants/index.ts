@@ -1,13 +1,10 @@
 import spinner from "../public/images/spinner.svg";
 import cec_icon from "../public/images/cec-icon.jpg";
+import { FaqsProps, LinksProps, MainActivitiesProps, MissionInfoProps, StatisticsProps } from "@/types";
 
 export const assets = {
     spinner,
     cec_icon,
-}
-interface LinksProps {
-    link: string;
-    name: string;
 }
 
 export const links: LinksProps[] = [
@@ -33,19 +30,6 @@ export const links: LinksProps[] = [
     }
 ]
 
-interface MissionProps {
-    id: number;
-    title: string;
-    desc: string;
-}
-
-interface MissionInfoProps {
-    id : number;
-    title : string;
-    desc1 : string;
-    desc2 : string;
-    missions : MissionProps[];
-}
 
 export const missionInfo: MissionInfoProps[] = [
     {
@@ -73,18 +57,6 @@ export const missionInfo: MissionInfoProps[] = [
     }
 ]
 
-interface ImpactsProps {
-    id: number;
-    number: string;
-    title: string;
-    desc: string;
-}
-interface StatisticsProps {
-    id : number;
-    title : string;
-    impacts : ImpactsProps[];
-}
-
 export const statistics: StatisticsProps[] = [
     {
         "id" : 1,
@@ -111,19 +83,6 @@ export const statistics: StatisticsProps[] = [
         ]
     },
 ]
-
-interface ActivitiesProps {
-    id: number;
-    icon: string;
-    title: string;
-    desc: string;
-}
-interface MainActivitiesProps {
-    id : number;
-    title : string;
-    desc : string;
-    activities : ActivitiesProps[];
-}
 
 export const mainActivities : MainActivitiesProps[] = [
     {
@@ -171,10 +130,6 @@ export const mainActivities : MainActivitiesProps[] = [
     },
 ]
 
-interface FaqsProps {
-    question : string;
-    answer : string;
-}
 
 export const faqs : FaqsProps[] = [
     {

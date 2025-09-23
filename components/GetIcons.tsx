@@ -1,12 +1,6 @@
+import { GetIconsProps } from '@/types';
 import { BookOpen, GraduationCap, Mic, Settings, Trophy, User } from 'lucide-react';
 import React from 'react';
-
-interface GetIconsProps {
-    // type : "BookOpen" | "Trophy" | "Mic" | "Settings" | "Users" | "GraduationCap";
-    type: string;
-    className : string;
-    size : number;
-}
 
 const GetIcons = ({type, className, size} : GetIconsProps) => {
     switch(type) {

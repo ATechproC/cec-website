@@ -5,21 +5,21 @@ import { useEffect, useState } from "react"
 import Header from "../Header"
 import Footer from "../Footer"
 import Image from "next/image"
-import { CECProjects, ProjectsProps } from "@/data"
+import { CECProjects, fakeProjectsInfo, ProjectsProps } from "@/data"
 import Link from "next/link"
 import { useSelectYear } from "@/providers/SelectYearProvider"
 import { useMobileMenu } from "@/providers/MobileMenuProvider"
 
 const ShowProjects = ({ year }: { year: number }) => {
-    const [projects, setProjects] = useState<ProjectsProps[] | null>(null);
+    const [projects, setProjects] = useState<ProjectsProps[]>([]);
 
     useEffect(() => {
         for (let i = 0; i < CECProjects.length; i++) {
             if (CECProjects[i].id === year) {
                 setProjects(CECProjects[i].projects);
                 break;
-            }else {
-                setProjects(null)
+            } else {
+                setProjects(fakeProjectsInfo)
             }
         }
     }, [year])
@@ -28,30 +28,36 @@ const ShowProjects = ({ year }: { year: number }) => {
         className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {projects?.map(({ id, src, title, desc, link }) => <div key={id}
             className="bg-[#1a1a1a] flex flex-col justify-between rounded-lg overflow-hidden border border-[#333333] hover:border-[#ffd60a] transition-colors">
-            <div className="relative aspect-video bg-gradient-to-br from-blue-500 to-blue-700 h-[210px]">
-                <Image
-                    src={src}
-                    alt={title}
-                    className="object-cover w-full h-full"
-                />
-            </div>
+            {
+                (src !== "/placeholder.svg") && <div className="relative aspect-video bg-gradient-to-br from-blue-500 to-blue-700 h-[210px]">
+                    <Image
+                        src={src}
+                        alt={title}
+                        className="object-cover w-full h-full"
+                    />
+                </div>
+            }
+
             <div className="p-6">
                 <h3 className="mb-3 text-xl font-bold text-white"> {title} </h3>
                 <p className="text-[#444444] mb-6 leading-relaxed"> {desc} </p>
-                <Link href={link}
-                    className="w-full flex items-center justify-center gap-1 p-1 font-semibold bg-transparent border border-[#ffd60a] text-[#ffd60a] hover:bg-[#ffd60a] hover:text-black transition-colors">
-                    <Code size={16} className="mr-2" />
-                    View
-                </Link>
+                {
+                    (src !== "/placeholder.svg") && <Link href={link}
+                        className="w-full flex items-center justify-center gap-1 p-1 font-semibold bg-transparent border border-[#ffd60a] text-[#ffd60a] hover:bg-[#ffd60a] hover:text-black transition-colors">
+                        <Code size={16} className="mr-2" />
+                        View
+                    </Link>
+                }
+
             </div>
         </div>)}
     </div>
 }
 
 export default function Projects() {
-    const {isMobileMenuOpen, setIsMobileMenuOpen} = useMobileMenu();
+    const { isMobileMenuOpen, setIsMobileMenuOpen } = useMobileMenu();
 
-    const {year} = useSelectYear();
+    const { year } = useSelectYear();
 
     return (
         <div className="min-h-screen bg-[#121212]">

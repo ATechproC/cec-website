@@ -5,44 +5,51 @@ import Image, { StaticImageData } from "next/image"
 import { useEffect, useState } from "react"
 import Header from "../Header"
 import Footer from "../Footer"
-import { assets, teamMembers, TeamProps } from "@/data"
+import { assets, fakeTeamInfo, teamMembers, TeamProps } from "@/data"
 import { mainActivities, missionInfo, statistics } from "@/constants"
 import GetIcons from "../GetIcons"
 
 import { useSelectYear } from "@/providers/SelectYearProvider"
 import { useMobileMenu } from "@/providers/MobileMenuProvider"
 
-// const ShowImage = ({ year }: { year: number }) => {
+const ShowImage = ({ year }: { year: number }) => {
 
-//     const [source, setSource] = useState<StaticImageData | null>(null)
+    const [source, setSource] = useState<StaticImageData | string>("")
 
-//     useEffect(() => {
-//         for(let i = 0; i < assets.length; i++) {
-//             if(assets[i].id === year) {
-//                 setSource(assets[i].founded);
-//                 break;
-//             }
-//         }
-//     }, [year]);
+    useEffect(() => {
+        for (let i = 0; i < assets.length; i++) {
+            if (assets[i].id === year) {
+                setSource(assets[i].founded);
+                break;
+            } else {
+                setSource("/placeholder.svg");
+            }
+        }
+    }, [year]);
 
-//     return <Image
-//         src={source}
-//         alt="hero"
-//         className="w-[100%] h-[100%]"
-//     />
-// }
+    return <div className="w-[100%] md:h-[600px]">
+        <Image
+            src={source || "/placeholder.svg"}
+            // alt="hero"
+            // className="object-cover w-full h-full"
+            fill
+            alt="hero"
+            className="w-[100%] h-[100%] object-cover"
+        />
+    </div>
+}
 
 const ShowTeamMembers = ({ year }: { year: number }) => {
 
-    const [members, setMembers] = useState<TeamProps[] | null>(null);
+    const [members, setMembers] = useState<TeamProps[]>([]);
 
     useEffect(() => {
         for (let i = 0; i < teamMembers.length; i++) {
             if (year === teamMembers[i].id) {
                 setMembers(teamMembers[i]["team"]);
                 break;
-            }else {
-                setMembers(null);
+            } else {
+                setMembers(fakeTeamInfo);
             }
         }
     }, [year]);
@@ -79,7 +86,7 @@ const ShowTeamMembers = ({ year }: { year: number }) => {
 
 export default function About() {
 
-    const {isMobileMenuOpen, setIsMobileMenuOpen} = useMobileMenu();
+    const { isMobileMenuOpen, setIsMobileMenuOpen } = useMobileMenu();
 
     const { year } = useSelectYear();
 
@@ -107,11 +114,14 @@ export default function About() {
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-12">
                         {/* <ShowImage year={year} /> */}
-                        <Image
-                            src={assets[0].founded}
-                            alt="hero"
-                            className="w-[100%] h-[100%]"
-                        />
+                        {
+                            year === 2025 && <Image
+                                src={assets[0].founded}
+                                alt="hero"
+                                className="w-[100%] h-[100%]"
+                            />
+                        }
+
                     </div>
 
                     {missionInfo.map(({ id, title, desc1, desc2, missions }) => <div
@@ -190,7 +200,6 @@ export default function About() {
                     </div>
                 </div>
             </section>
-
 
             {/* Footer */}
             <Footer />

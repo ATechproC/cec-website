@@ -18,7 +18,7 @@ const Header = () => {
     const pathName = usePathname()
 
     return (
-        <header className="bg-[#121212] px-4 sm:px-6 py-3 sm:py-4 fixed top-0 w-full z-20">
+        <header className="bg-[#121212] px-4 sm:px-6 py-3 sm:py-4 fixed top-0 w-full z-50">
             <div className="flex items-center justify-between mx-auto max-w-7xl">
                 <div className="flex-shrink-0 text-lg font-bold sm:text-xl md:text-2xl">
                     <span className="text-[#ffd60a] mr-1">CEC</span>
@@ -41,7 +41,7 @@ const Header = () => {
                         <Button
                             className={cn(
                                 "hidden md:block bg-[#ffd60a] text-black hover:bg-[#ffd60a]/90 font-semibold px-4 lg:px-6 text-sm lg:text-base",
-                                pathName === "join-us" && "text-white",
+                                pathName === "/join-us" && "text-white",
                             )}
                         >
                             Join Us
@@ -64,7 +64,7 @@ const Header = () => {
 
             {isMobileMenuOpen && <>
                 <div
-                    className="absolute left-0 top-0 w-[100%] h-screen bg-dark-1"
+                    className="absolute left-0 top-0 w-[100%] h-screen md:hidden bg-dark-1"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 />
                 <div className="md:hidden absolute top-full left-0 right-0 bg-[#121212] border-t border-[#333333] z-50 shadow-lg">
@@ -74,6 +74,7 @@ const Header = () => {
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 key={nanoid()}
                                 href={link}
+                                style={{color : pathName === link ? "#ffd60a" : ""}}
                                 className="text-white hover:text-[#ffd60a] transition-colors block py-1 text-sm sm:text-base"
                             >
                                 {name}{" "}
@@ -89,7 +90,7 @@ const Header = () => {
                             <Button
                                 className={cn(
                                     "w-full bg-[#ffd60a] text-black hover:bg-[#ffd60a]/90 font-semibold cursor-pointer text-sm sm:text-base",
-                                    pathName === "join-us" && "text-white",
+                                    pathName === "/join-us" && "text-white",
                                 )}
                                 onClick={() => {
                                     setIsMobileMenuOpen(false)

@@ -8,6 +8,14 @@ import Image, { StaticImageData } from "next/image"
 import { useSelectYear } from "@/providers/SelectYearProvider"
 import { useMobileMenu } from "@/providers/MobileMenuProvider"
 
+// ParticlesBackground
+
+import { ParticlesBackground } from "@/components/ParticlesBackground"
+
+// motion
+import { motion } from "motion/react"
+
+
 const ShowHero = ({ year }: { year: number }) => {
 
     const [source, setSource] = useState<StaticImageData | string>("")
@@ -34,13 +42,13 @@ const ShowHero = ({ year }: { year: number }) => {
 }
 
 export default function Home() {
-    const {isMobileMenuOpen, setIsMobileMenuOpen} = useMobileMenu();
+    const { isMobileMenuOpen, setIsMobileMenuOpen } = useMobileMenu();
 
     const { year } = useSelectYear();
 
     return (
         <div className="min-h-screen bg-[#121212]">
-            
+
             <Header />
 
             {isMobileMenuOpen && (
@@ -51,43 +59,72 @@ export default function Home() {
             <section className="relative min-h-[600px] flex items-center justify-center">
                 <div className="absolute left-0 top-0 w-[100%] h-[100%] mt-9">
                     <ShowHero year={year} />
-                    <div className="absolute inset-0 bg-dark-1"></div>
+                    <ParticlesBackground />
+                    <div className="absolute inset-0 bg-dark-1" />
                 </div>
 
-                <div className="relative z-10 max-w-4xl px-6 mx-auto text-center max-sm:mt-20">
-                    <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                    className="relative z-10 max-w-4xl px-6 mx-auto text-center max-sm:mt-20">
+                    <motion.h1
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="mb-6 text-4xl font-bold text-white md:text-6xl">
                         Welcome to{" "}
                         <span className="text-[#ffd60a] relative">
                             CEC Club!
                             <div className="absolute -bottom-2 left-0 right-0 h-1 bg-[#ffd60a]"></div>
                         </span>
-                    </h1>
-                    <p className="max-w-2xl mx-auto mb-12 text-xl text-white">
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        className="max-w-2xl mx-auto mb-12 text-xl text-white">
                         Your hub for technology, innovation, and collaboration.
-                    </p>
+                    </motion.p>
 
                     {/* Statistics */}
-                    <div className="flex flex-col items-center justify-center gap-8 md:flex-row md:gap-16">
-                        <div className="text-center">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.6 }}
+                        className="flex flex-col items-center justify-center gap-8 md:flex-row md:gap-16">
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                            className="text-center">
                             <div className="w-24 h-24 bg-[#ffd60a] rounded-full flex items-center justify-center mb-2 mx-auto">
                                 <span className="text-2xl font-bold text-black">50+</span>
                             </div>
                             <p className="font-semibold tracking-wider text-white">MEMBERS</p>
-                        </div>
-                        <div className="text-center">
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.6 }}
+                            className="text-center">
                             <div className="w-24 h-24 bg-[#ffd60a] rounded-full flex items-center justify-center mb-2 mx-auto">
                                 <span className="text-2xl font-bold text-black">20+</span>
                             </div>
                             <p className="font-semibold tracking-wider text-white">PROJECTS</p>
-                        </div>
-                        <div className="text-center">
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.8 }}
+                            className="text-center">
                             <div className="w-24 h-24 bg-[#ffd60a] rounded-full flex items-center justify-center mb-2 mx-auto">
                                 <span className="text-2xl font-bold text-black">15+</span>
                             </div>
                             <p className="font-semibold tracking-wider text-white">EVENTS</p>
-                        </div>
-                    </div>
-                </div>
+                        </motion.div>
+                    </motion.div>
+                </motion.div>
             </section>
 
             <Footer />

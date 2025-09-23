@@ -1,7 +1,9 @@
 import spinner from "../public/images/spinner.svg";
+import cec_icon from "../public/images/cec-icon.jpg";
 
 export const assets = {
-    spinner
+    spinner,
+    cec_icon,
 }
 interface LinksProps {
     link: string;

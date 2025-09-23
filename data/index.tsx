@@ -28,6 +28,8 @@ import pod from "../public/images/events/pod.jpg";
 import pr_solv from "../public/images/events/pr-solv.png";
 import { StaticImageData } from "next/image";
 
+import fake_profile from "../public/images/fake-profile1.png"
+
 export interface TeamProps {
     id: number;
     name: string;
@@ -42,6 +44,45 @@ interface MembersProps {
     id: number;
     team: TeamProps[];
 }
+
+export const fakeTeamInfo: TeamProps[] = [
+    {
+        "id": 1,
+        "name": "Team Member",
+        "title": "Position",
+        "desc": "Brief description of role and expertise.",
+        "profile": fake_profile,
+        "linkedIn": "#",
+        "gitHub": "#",
+    },
+    {
+        "id": 2,
+        "name": "Team Member",
+        "title": "Position",
+        "desc": "Brief description of role and expertise.",
+        "profile": fake_profile,
+        "linkedIn": "#",
+        "gitHub": "#",
+    },
+    {
+        "id": 3,
+        "name": "Team Member",
+        "title": "Position",
+        "desc": "Brief description of role and expertise.",
+        "profile": fake_profile,
+        "linkedIn": "#",
+        "gitHub": "#",
+    },
+    {
+        "id": 4,
+        "name": "Team Member",
+        "title": "Position",
+        "desc": "Brief description of role and expertise.",
+        "profile": fake_profile,
+        "linkedIn": "#",
+        "gitHub": "#",
+    },
+]
 
 export const teamMembers: MembersProps[] = [
     {
@@ -166,18 +207,31 @@ export const teamMembers: MembersProps[] = [
 
 export interface EventsProps {
     id: number;
-    picture: StaticImageData;
+    picture: StaticImageData | "/placeholder.svg";
     title: string;
     date: string;
     status: string;
     desc: string;
-    speakers?: string[]
+    speakers?: string[];
+    modalTitle?: string;
+    modalDescription?: string;
 }
 
 interface EventsCECProps {
     id: number;
     events: EventsProps[];
 }
+
+export const fakeEventsInfo: EventsProps[] = [
+    {
+        id: 1,
+        picture: "/placeholder.svg",
+        title: "No Events Yet",
+        date: "—",
+        status: "—",
+        desc: "There are currently no events available. Please check back later.",
+    },
+]
 
 export const eventsCEC: EventsCECProps[] = [
     {
@@ -190,6 +244,8 @@ export const eventsCEC: EventsCECProps[] = [
                 "date": "April 24,2025",
                 "status": "Google Meet",
                 "desc": "A session focused on problem-solving techniques and critical thinking. Discover advanced approaches to tackle complex programming challenges.",
+                "modalTitle": "Advanced Problem Solving Techniques",
+                "modalDescription": "Join us for an intensive session where we dive deep into systematic problem-solving methodologies. Learn how to break down complex programming challenges, apply critical thinking frameworks, and develop efficient solutions. This session is perfect for developers looking to enhance their technical problem-solving skills and tackle real-world coding challenges with confidence."
             },
             {
                 "id": 2,
@@ -199,6 +255,8 @@ export const eventsCEC: EventsCECProps[] = [
                 "status": "Online",
                 "speakers": ["Hicham Maghraoui", "Othman Moussaoui", "Ismail Hamdach"],
                 "desc": "Exploring the origins and impact of hackathons with industry experts.",
+                "modalTitle": "The Evolution of Hackathons",
+                "modalDescription": "Discover the fascinating history and evolution of hackathons with our panel of industry experts. Learn how hackathons have transformed from small coding gatherings to global innovation platforms. Our speakers will share insights on how hackathons have launched successful startups, fostered community collaboration, and become powerful tools for skill development and networking in the tech industry."
             },
             {
                 "id": 3,
@@ -208,6 +266,8 @@ export const eventsCEC: EventsCECProps[] = [
                 "status": "Google Meet",
                 "speakers": ["Bachir Cherrat", "Chakib Dekik"],
                 "desc": "A workshop detailing the journey from a concept to a market-ready product.",
+                "modalTitle": "Product Development Masterclass",
+                "modalDescription": "This comprehensive workshop guides you through the entire product development lifecycle. From initial ideation and market research to prototyping, testing, and final launch, our experienced speakers will share practical frameworks and real-world case studies. Perfect for aspiring entrepreneurs, product managers, and developers looking to transform their ideas into successful market-ready products."
             },
             {
                 "id": 4,
@@ -217,6 +277,8 @@ export const eventsCEC: EventsCECProps[] = [
                 "status": "ENSA Berrechid",
                 "speakers": ["Youssef El Azizi", "Mohamed Daoudi"],
                 "desc": "An engaging on-campus session in collaboration with Geeksblabla.",
+                "modalTitle": "Geeksblabla Campus Collaboration",
+                "modalDescription": "We're excited to host the renowned Geeksblabla team for a special on-campus event! This collaborative session brings together students and industry professionals for an interactive discussion on current tech trends, career opportunities, and the future of technology. Expect engaging talks, Q&A sessions, and valuable networking opportunities with leading figures in the Moroccan tech community."
             },
             {
                 "id": 5,
@@ -226,6 +288,8 @@ export const eventsCEC: EventsCECProps[] = [
                 "status": "Room D7, ENSA",
                 "speakers": ["Hafid (AI)", "Marwa (Data)"],
                 "desc": "An introductory session to the fascinating worlds of Data and Artificial Intelligence.",
+                "modalTitle": "Data & AI Fundamentals Workshop",
+                "modalDescription": "Dive into the exciting realms of Data Science and Artificial Intelligence in this beginner-friendly workshop. Our experts will demystify core concepts, showcase real-world applications, and provide hands-on examples of how data and AI are transforming industries. Whether you're new to the field or looking to strengthen your foundation, this session offers valuable insights into one of technology's most dynamic areas."
             },
         ]
     },
@@ -242,13 +306,37 @@ export interface ProjectsProps {
     title: string;
     desc: string;
     link: string;
-    src: StaticImageData
+    src: StaticImageData | "/placeholder.svg"
 }
 
 interface CECProjectsProps {
     id: number;
     projects: ProjectsProps[];
 }
+
+export const fakeProjectsInfo: ProjectsProps[] = [
+    {
+        id: 1,
+        title: "No Projects Yet",
+        desc: "There are currently no projects available. Please check back later.",
+        link: "#",
+        src: "/placeholder.svg"
+    },
+    {
+        id: 2,
+        title: "No Projects Yet",
+        desc: "There are currently no projects available. Please check back later.",
+        link: "#",
+        src: "/placeholder.svg"
+    },
+    {
+        id: 3,
+        title: "No Projects Yet",
+        desc: "There are currently no projects available. Please check back later.",
+        link: "#",
+        src: "/placeholder.svg"
+    },
+]
 
 export const CECProjects: CECProjectsProps[] = [
     {
@@ -259,7 +347,7 @@ export const CECProjects: CECProjectsProps[] = [
                 "title": "Weather App",
                 "desc": "A web application providing real-time weather updates and forecasts. Users can search for cities to view temperature, conditions, and hourly predictions.",
                 "link": "#",
-                "src": weather
+                "src": weather,
             },
             {
                 "id": 2,
@@ -294,12 +382,12 @@ export const CECProjects: CECProjectsProps[] = [
 ]
 
 interface AssetsProps {
-    id : number;
-    hero : StaticImageData;
+    id: number;
+    hero: StaticImageData;
     founded: StaticImageData;
 }
 
-export const assets : AssetsProps[] = [
+export const assets: AssetsProps[] = [
     {
         id: 2025,
         hero,

@@ -16,4 +16,42 @@
   .center-element {
     @apply w-[90%] mx-auto;
   }
+
+   /* animations */
+
+  /* ======================= delete modal animation  */
+
+  .open {
+    animation: animation-in .1s linear forwards;
+  }
+
+  .close {
+    animation: animation-out .1s linear forwards;
+  }
+
+  @keyframes animation-in {
+
+    0% {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    100% {
+      opacity: 1;
+    }
+
+  }
+
+  @keyframes animation-out {
+
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+  }
 }

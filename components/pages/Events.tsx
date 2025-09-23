@@ -6,73 +6,99 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 import Header from "../Header"
 import Footer from "../Footer"
-import { eventsCEC, EventsProps } from "@/data"
+import { eventsCEC, EventsProps, fakeEventsInfo } from "@/data"
 import { useSelectYear } from "@/providers/SelectYearProvider"
 import { useMobileMenu } from "@/providers/MobileMenuProvider"
+import { cn } from "@/lib/utils"
+import EventsModal from "../EventsModal"
+import { useEventsModal } from "@/providers/EventsModalProvider"
 
 const ShowCECEvents = ({ year }: { year: number }) => {
+
+    const { setStates: { setTitle, setDescription, setIsEventsModalOpen }} = useEventsModal();
 
     const [events, setEvents] = useState<EventsProps[] | null>(null)
 
     useEffect(() => {
-        for(let i = 0; i < eventsCEC.length; i++) {
-            if(eventsCEC[i].id === year) {
+        for (let i = 0; i < eventsCEC.length; i++) {
+            if (eventsCEC[i].id === year) {
                 setEvents(eventsCEC[i].events);
                 break;
-            }else {
-                setEvents(null)
+            } else {
+                setEvents(fakeEventsInfo)
             }
         }
     }, [year]);
 
-    return events?.map(({id, picture, title, date, status, speakers, desc}) => <div key={id} className="flex items-center px-4 py-3 rounded-lg bg-dark-1 w-[90%] m-auto max-sm:flex max-sm:flex-col max-sm:gap-2">
-        <div className="md:w-1/3">
-            <Image
-                src={picture || "/placeholder.svg"}
-                alt={title}
-                className="object-cover w-full max-h-[300px]" 
-            />
-        </div>
-        <div className="w-2/3 md:p-6">
-            <h3 className="mb-3 text-xl font-bold text-white max-sm:text-sm">{title}</h3>
-            <div className="flex items-center text-[#ffd60a] text-sm mb-2">
-                <Calendar size={14} className="mr-2" />
-                {date}
-            </div>
-            <div className="flex items-center text-[#ffd60a] text-sm mb-4">
-                <MapPin size={14} className="mr-2" />
-                {status}
-            </div>
-            {speakers && (
-                <div className="text-[#444444] text-sm mb-4">
-                    <strong>Speakers:</strong> {speakers.join(", ")}
+    return events?.map(({ id, picture, title, date, status, speakers, desc,
+        modalTitle, modalDescription
+    }) => <div key={id}
+        onClick={() => {
+
+        }}
+        className="flex items-center px-4 py-3 rounded-lg bg-dark-1 w-[90%] m-auto max-sm:flex max-sm:flex-col max-sm:gap-2">
+            {
+                (picture !== "/placeholder.svg") && <div className="md:w-1/3">
+                    <Image
+                        src={picture}
+                        alt={title}
+                        className="object-cover w-full max-h-[300px]"
+                    />
                 </div>
-            )}
-            <p className="text-[#444444] mb-6 text-sm leading-relaxed">{desc}</p>
-            <Button className="bg-[#ffd60a] text-black max-sm:mb-3 hover:bg-[#ffd60a]/90 font-semibold text-sm px-6">
-                LEARN MORE
-            </Button>
-        </div>
-    </div>)
-    
+            }
+
+            <div className="w-2/3 md:p-6">
+                <h3 className="mb-3 text-xl font-bold text-white max-sm:text-sm">{title}</h3>
+                <div className="flex items-center text-[#ffd60a] text-sm mb-2">
+                    <Calendar size={14} className="mr-2" />
+                    {date}
+                </div>
+                <div className="flex items-center text-[#ffd60a] text-sm mb-4">
+                    <MapPin size={14} className="mr-2" />
+                    {status}
+                </div>
+                {speakers && (
+                    <div className="text-[#444444] text-sm mb-4">
+                        <strong>Speakers:</strong> {speakers.join(", ")}
+                    </div>
+                )}
+                <p className={cn("text-[#444444] mb-6 text-sm leading-relaxed",
+                    (picture === "/placeholder.svg") && "text-[18px]"
+                )}>{desc}</p>
+
+                {
+                    (picture !== "/placeholder.svg") && <div className="md:w-1/3">
+                        <Button
+                            onClick={() => {
+                                setTitle(modalTitle);
+                                setDescription(modalDescription);
+                                setIsEventsModalOpen(true)
+                            }}
+                            className="bg-[#ffd60a] text-black max-sm:mb-3 hover:bg-[#ffd60a]/90 font-semibold text-sm px-6">
+                            LEARN MORE
+                        </Button>
+                    </div>
+                }
+            </div>
+        </div>)
+
 }
 
 export default function Events() {
 
-    const {isMobileMenuOpen, setIsMobileMenuOpen} = useMobileMenu();
+    const { isMobileMenuOpen, setIsMobileMenuOpen } = useMobileMenu();
 
-    const {year} = useSelectYear();
+    const { year } = useSelectYear();
 
     return (
         <div className="min-h-screen bg-[#121212]">
-            {/* Header */}
+
             <Header />
 
             {isMobileMenuOpen && (
                 <div className="fixed inset-0 bg-black/50 md:hidden" onClick={() => setIsMobileMenuOpen(false)} />
             )}
 
-            {/* Hero Section */}
             <section className="px-6 py-16">
                 <div className="mx-auto max-w-7xl">
                     <div className="border-4 border-[#ffd60a] rounded-lg p-12 md:p-20 text-center">
@@ -106,7 +132,8 @@ export default function Events() {
                 </div>
             </section>
 
-            {/* Footer */}
+            <EventsModal />
+
             <Footer />
         </div>
     )

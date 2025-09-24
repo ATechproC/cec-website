@@ -65,12 +65,12 @@ export default function About() {
                                 <div className="text-center">
                                     {
                                         (year === 2025) ? <Image
-                                        src={assets[0].founded}
-                                        className="object-cover w-full rounded-md h-80"
-                                        alt=""
+                                            src={assets[0].founded}
+                                            className="object-cover w-full rounded-md h-80"
+                                            alt=""
                                         /> : <>
-                                                <Code size={80} className="text-[#ffd60a] mx-auto mb-4" />
-                                                <h3 className="text-2xl font-bold text-white">Innovation Through Code</h3>
+                                            <Code size={80} className="text-[#ffd60a] mx-auto mb-4" />
+                                            <h3 className="text-2xl font-bold text-white">Innovation Through Code</h3>
                                         </>
                                     }
                                 </div>
@@ -99,10 +99,10 @@ export default function About() {
                                         className="bg-[#1a1a1a] p-8 rounded-lg">
                                         <div className="text-4xl font-bold text-[#ffd60a] mb-2"> {
                                             getNumber(id, number) === "0" ?
-                                            <span className="text-[25px]">
-                                                Coming Soon
-                                            </span>
-                                             : getNumber(id, number)
+                                                <span className="text-[25px]">
+                                                    Coming Soon
+                                                </span>
+                                                : getNumber(id, number)
                                         } </div>
                                         <div className="mb-2 font-semibold text-white"> {title} </div>
                                         <p className="text-[#444444] text-sm"> {desc} </p>

@@ -98,7 +98,11 @@ export default function About() {
                                     impacts.map(({ id, number, title, desc }) => <div key={id}
                                         className="bg-[#1a1a1a] p-8 rounded-lg">
                                         <div className="text-4xl font-bold text-[#ffd60a] mb-2"> {
-                                            getNumber(id, number)
+                                            getNumber(id, number) === "0" ?
+                                            <span className="text-[25px]">
+                                                Coming Soon
+                                            </span>
+                                             : getNumber(id, number)
                                         } </div>
                                         <div className="mb-2 font-semibold text-white"> {title} </div>
                                         <p className="text-[#444444] text-sm"> {desc} </p>

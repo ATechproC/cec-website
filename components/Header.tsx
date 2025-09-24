@@ -20,7 +20,9 @@ const Header = () => {
     return (
         <header className="bg-[#121212] px-4 sm:px-6 py-3 sm:py-4 fixed top-0 w-screen z-50">
             <div className="flex items-center justify-between mx-auto max-w-7xl">
-                <div className="flex-shrink-0 text-lg font-bold sm:text-xl md:text-2xl">
+                <div
+                    onClick={() => redirect("/")}
+                    className="flex-shrink-0 text-lg font-bold cursor-pointer sm:text-xl md:text-2xl">
                     <span className="text-[#ffd60a] mr-1">CEC</span>
                     <span className="text-white">CLUB</span>
                 </div>
@@ -74,7 +76,7 @@ const Header = () => {
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 key={nanoid()}
                                 href={link}
-                                style={{color : pathName === link ? "#ffd60a" : ""}}
+                                style={{ color: pathName === link ? "#ffd60a" : "" }}
                                 className="text-white hover:text-[#ffd60a] transition-colors block py-1 text-sm sm:text-base"
                             >
                                 {name}

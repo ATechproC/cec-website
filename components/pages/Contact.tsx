@@ -9,7 +9,7 @@ import ContactForm from "../ContactForm"
 import { useMobileMenu } from "@/providers/MobileMenuProvider"
 
 export default function Contact() {
-    const {isMobileMenuOpen, setIsMobileMenuOpen} = useMobileMenu();
+    const { isMobileMenuOpen, setIsMobileMenuOpen } = useMobileMenu();
 
     return (
         <div className="min-h-screen bg-[#121212]">
@@ -67,15 +67,15 @@ export default function Contact() {
                                     </div>
                                 </div>
 
-                                {/* <div className="flex items-start gap-4">
+                                <div className="flex items-start gap-4">
                                     <div className="w-10 h-10 bg-[#ffd60a] rounded-full flex items-center justify-center flex-shrink-0">
                                         <Mail size={20} className="text-black" />
                                     </div>
                                     <div>
                                         <h3 className="mb-1 font-semibold text-white">Email</h3>
-                                        <p className="text-[#444444] text-sm max-sm:-ml-12 max-sm:pt-4">computer.engineering.ensab22@gmail.com</p>
+                                        <p className="text-[#444444] text-sm max-sm:-ml-14 max-sm:pt-5">computer.engineering.ensab22@gmail.com</p>
                                     </div>
-                                </div> */}
+                                </div>
                             </div>
 
                             <div className="mt-8">

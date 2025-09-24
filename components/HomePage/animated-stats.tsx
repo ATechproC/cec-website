@@ -84,20 +84,26 @@ export function AnimatedStats() {
             {stats.map((stat, index) => (
                 <div
                     key={stat.label}
-                    className={`text-center transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                    className={`text-center flex items-center max-sm:flex-col max-sm:gap-2 transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                         }`}
                     style={{ transitionDelay: `${index * 200}ms` }}
                 >
-                    <div className="relative">
+                    <div className="relative ">
 
                         {/* Counter */}
-                        <div className="relative z-10 py-8">
-                            <div className="mb-2 text-4xl font-bold text-white md:text-6xl">
+                            <div className="relative z-10 py-8 md:gap-5 md:flex-col md:flex">
+                            
+                            {
+                                animatedValues[index] === 0 ? <div className="font-bold text-white text-[30px]">
+                                    Coming Soon
+                                    </div> : <div className="mb-2 text-4xl font-bold text-white md:text-6xl">
                                 {animatedValues[index]}
                                 {stat.suffix}
                             </div>
+                            }
                             <div className="text-sm font-semibold tracking-wider text-gray-300 md:text-base">{stat.label}</div>
                         </div>
+                        
                     </div>
                 </div>
             ))}

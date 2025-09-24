@@ -360,15 +360,17 @@ export const eventsCEC: EventsCECProps[] = [
     {
         "id": 2025,
         "events": [
+            
             {
                 "id": 1,
                 "picture": ai_data,
-                "title": "Problem Solving",
-                "date": "April 24,2025",
-                "status": "Google Meet",
-                "desc": "A session focused on problem-solving techniques and critical thinking. Discover advanced approaches to tackle complex programming challenges.",
-                "modalTitle": "Advanced Problem Solving Techniques",
-                "modalDescription": "Join us for an intensive session where we dive deep into systematic problem-solving methodologies. Learn how to break down complex programming challenges, apply critical thinking frameworks, and develop efficient solutions. This session is perfect for developers looking to enhance their technical problem-solving skills and tackle real-world coding challenges with confidence."
+                "title": "Unlock the Power of Data and AI",
+                "date": "December 18, 2024",
+                "status": "Room D7, ENSA",
+                "speakers": ["Hafid (AI)", "Marwa (Data)"],
+                "desc": "An introductory session to the fascinating worlds of Data and Artificial Intelligence.",
+                "modalTitle": "Data & AI Fundamentals Workshop",
+                "modalDescription": "Dive into the exciting realms of Data Science and Artificial Intelligence in this beginner-friendly workshop. Our experts will demystify core concepts, showcase real-world applications, and provide hands-on examples of how data and AI are transforming industries. Whether you're new to the field or looking to strengthen your foundation, this session offers valuable insights into one of technology's most dynamic areas."
             },
             {
                 "id": 2,
@@ -381,19 +383,9 @@ export const eventsCEC: EventsCECProps[] = [
                 "modalTitle": "The Evolution of Hackathons",
                 "modalDescription": "Discover the fascinating history and evolution of hackathons with our panel of industry experts. Learn how hackathons have transformed from small coding gatherings to global innovation platforms. Our speakers will share insights on how hackathons have launched successful startups, fostered community collaboration, and become powerful tools for skill development and networking in the tech industry."
             },
+            
             {
                 "id": 3,
-                "picture": id_to_pd,
-                "title": "From Idea to Product",
-                "date": "April 30, 2025",
-                "status": "Google Meet",
-                "speakers": ["Bachir Cherrat", "Chakib Dekik"],
-                "desc": "A workshop detailing the journey from a concept to a market-ready product.",
-                "modalTitle": "Product Development Masterclass",
-                "modalDescription": "This comprehensive workshop guides you through the entire product development lifecycle. From initial ideation and market research to prototyping, testing, and final launch, our experienced speakers will share practical frameworks and real-world case studies. Perfect for aspiring entrepreneurs, product managers, and developers looking to transform their ideas into successful market-ready products."
-            },
-            {
-                "id": 4,
                 "picture": geeks,
                 "title": "Geeksblabla On Campus",
                 "date": "February 26, 2025",
@@ -404,15 +396,25 @@ export const eventsCEC: EventsCECProps[] = [
                 "modalDescription": "We're excited to host the renowned Geeksblabla team for a special on-campus event! This collaborative session brings together students and industry professionals for an interactive discussion on current tech trends, career opportunities, and the future of technology. Expect engaging talks, Q&A sessions, and valuable networking opportunities with leading figures in the Moroccan tech community."
             },
             {
-                "id": 5,
+                "id": 4,
                 "picture": pr_solv,
-                "title": "Unlock the Power of Data and AI",
-                "date": "December 18, 2024",
-                "status": "Room D7, ENSA",
-                "speakers": ["Hafid (AI)", "Marwa (Data)"],
-                "desc": "An introductory session to the fascinating worlds of Data and Artificial Intelligence.",
-                "modalTitle": "Data & AI Fundamentals Workshop",
-                "modalDescription": "Dive into the exciting realms of Data Science and Artificial Intelligence in this beginner-friendly workshop. Our experts will demystify core concepts, showcase real-world applications, and provide hands-on examples of how data and AI are transforming industries. Whether you're new to the field or looking to strengthen your foundation, this session offers valuable insights into one of technology's most dynamic areas."
+                "title": "Problem Solving",
+                "date": "April 24,2025",
+                "status": "Google Meet",
+                "desc": "A session focused on problem-solving techniques and critical thinking. Discover advanced approaches to tackle complex programming challenges.",
+                "modalTitle": "Advanced Problem Solving Techniques",
+                "modalDescription": "Join us for an intensive session where we dive deep into systematic problem-solving methodologies. Learn how to break down complex programming challenges, apply critical thinking frameworks, and develop efficient solutions. This session is perfect for developers looking to enhance their technical problem-solving skills and tackle real-world coding challenges with confidence."
+            },
+            {
+                "id": 5,
+                "picture": id_to_pd,
+                "title": "From Idea to Product",
+                "date": "April 30, 2025",
+                "status": "Google Meet",
+                "speakers": ["Bachir Cherrat", "Chakib Dekik"],
+                "desc": "A workshop detailing the journey from a concept to a market-ready product.",
+                "modalTitle": "Product Development Masterclass",
+                "modalDescription": "This comprehensive workshop guides you through the entire product development lifecycle. From initial ideation and market research to prototyping, testing, and final launch, our experienced speakers will share practical frameworks and real-world case studies. Perfect for aspiring entrepreneurs, product managers, and developers looking to transform their ideas into successful market-ready products."
             },
         ]
     },

@@ -33,7 +33,6 @@ export function JoinUs() {
             <ApplicationSection />
             <FaqSection />
 
-            <Footer />
         </div>
     );
 }

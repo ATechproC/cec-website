@@ -18,11 +18,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CEC CLUB",
-  description: "CEC CLUB is a student community for coding, learning, and collaboration.",
+  title: {
+    default: "CEC CLUB",            
+    template: "%s | CEC CLUB",   
+  },
   icons: [
     { url: "/images/cec-icon.jpg" }
   ],
+  description: "CEC CLUB is a student community for coding, learning, and collaboration.",
 };
 
 

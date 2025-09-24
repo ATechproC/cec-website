@@ -57,7 +57,7 @@ export function CECHero() {
 
             <AnimatedBackground />
 
-            <div className="relative z-10 max-w-6xl px-4 mx-auto text-center">
+            <div className="relative z-10 max-w-6xl px-4 mx-auto text-center max-sm:pt-16">
                 {/* Main Heading */}
                 <div className="mb-8">
                     <h1 className="mb-4 text-4xl font-bold text-white md:text-6xl lg:text-7xl text-balance">

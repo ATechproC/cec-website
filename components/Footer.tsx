@@ -43,7 +43,7 @@ const Footer = () => {
                         <h3 className="mb-4 text-lg font-semibold">Contact</h3>
                         <div className="space-y-2 text-[#444444]">
                             <a
-                                className="inline-block transition-colors cursor-pointer hover:text-main"
+                                className="inline-block transition-colors cursor-pointer md:text-[13px] hover:text-main"
                                 href="" target="_blank">computer.engineering.ensab22@gmail.com</a>
                             <p>(+212) 612345678</p>
                             <p>

@@ -1,10 +1,12 @@
 import spinner from "../public/images/spinner.svg";
 import cec_icon from "../public/images/cec-icon.jpg";
+import mission1 from "../public/image.png"
 import { FaqsProps, LinksProps, MainActivitiesProps, MissionInfoProps, StatisticsProps } from "@/types";
 
 export const assets = {
     spinner,
     cec_icon,
+    mission1
 }
 
 export const links: LinksProps[] = [
@@ -59,9 +61,9 @@ export const missionInfo: MissionInfoProps[] = [
 
 export const statistics: StatisticsProps[] = [
     {
-        "id" : 1,
-        "title" : "Our Impact",
-        "impacts" : [
+        "id": 1,
+        "title": "Our Impact",
+        "impacts": [
             {
                 "id": 1,
                 "number": "50+",
@@ -84,12 +86,12 @@ export const statistics: StatisticsProps[] = [
     },
 ]
 
-export const mainActivities : MainActivitiesProps[] = [
+export const mainActivities: MainActivitiesProps[] = [
     {
-        "id" : 1,
-        "title" : "What We Do",
-        "desc" : "Explore the various activities and initiatives we organize",
-        "activities" : [
+        "id": 1,
+        "title": "What We Do",
+        "desc": "Explore the various activities and initiatives we organize",
+        "activities": [
             {
                 "id": 1,
                 "icon": "BookOpen",
@@ -131,7 +133,7 @@ export const mainActivities : MainActivitiesProps[] = [
 ]
 
 
-export const faqs : FaqsProps[] = [
+export const faqs: FaqsProps[] = [
     {
         question: "Is there a membership fee?",
         answer:
@@ -152,4 +154,85 @@ export const faqs : FaqsProps[] = [
         answer:
             "Yes! While we're based in the Computer Engineering department, we welcome students from all disciplines who have an interest in technology and want to learn programming, web development, or other tech skills.",
     },
+]
+
+interface ResourcesProps {
+    title: string;
+    description: string;
+    link: string;
+    href: string;
+}
+
+export const resources: ResourcesProps[] = [
+    {
+        title: "1. Recommended Playlist — YouTube:",
+        description:
+            "A curated list of coding videos to teach and develop skills in HTML, CSS, JavaScript, as well as modern frameworks, React, CSS, and other essential technologies. This playlist is designed for both beginners and those who are strengthening their skills and exploring new enhancements.",
+        link: "→ Start Learning",
+        href: "https://www.youtube.com/c/Freecodecamp"
+    },
+    {
+        title: "2. Club YouTube Page:",
+        description:
+            "Welcome to the YouTube page of the Computer Engineering Club — discover our webinars, our projects, and join us to share the passion for computer culture.",
+        link: "→ Start Learning Club",
+        href: "https://www.youtube.com/watch?v=fy2OgI0CkHE"
+    },
+    {
+        title: "3. Collaborative Design — Figma:",
+        description:
+            "An online design tool that allows you to create mockups and work together in real time. Perfect for designing your website or app interface before creating its code.",
+        link: "→ Start Learning Club",
+        "href": "https://www.figma.com/files/team/1411273961643118868/recents-and-sharing?fuid=1411273959361739376"
+    },
+    {
+        title: "4. Collaborative Work — GitHub:",
+        description:
+            "If you want to work in others' Team Git, use collaborative efficiently set a project. GitHub is the essential platform to manage projects and grow together.",
+        link: "→ GitHub",
+        "href": "https://github.com/?utm_source=chatgpt.com"
+    },
+    {
+        title: "5. Interactive Coding Platforms:",
+        description:
+            "Websites where you can practice coding challenges, improve algorithms, and get real-time feedback to sharpen your skills.",
+        link: "→ LeetCode",
+        href: "https://leetcode.com/?utm_source=chatgpt.com",
+    },
+
+    {
+        title: "6. Resources to Improve Your Resume:",
+        description:
+            "These resources help with your resume? Use this link require to career and optimize professional resources.",
+        link: "→ Improve",
+        "href": "https://www.fiverr.com/categories/writing-translation/resume-writing"
+    },
+    {
+        title: "7. Build a 3D Portfolio:",
+        description:
+            "To showcase your projects in a unique way, you can create an interactive 3D portfolio. These platforms allow you to build and share your creations.",
+        link: "→ Portfolio",
+        "href": "https://sketchfab.com/?utm_source=chatgpt.com"
+    },
+    {
+        title: "8. Typing Challenge — Monkeytype:",
+        description:
+            "Improve your typing speed and keyboard efficiency with customizable exercises. A fun and useful training to code faster!",
+        link: "→ Try to Monkeytype",
+        "href": "https://monkeytype.com/?utm_source=chatgpt.com"
+    },
+]
+
+
+interface ResourcesLinksProps {
+    name: string;
+    link: string;
+}
+
+
+export const resourcesLinks: ResourcesLinksProps[] = [
+    { name: "Blog", link: "/blog" },
+    { name: "Resources", link: "/resources" },
+    { name: "Join Us", link: "/join-us" },
+    { name: "FAQ", link: "/faq" },
 ]

@@ -1,133 +1,16 @@
-"use client"
-
-import { useEffect, useState } from "react"
-import Header from "../Header"
-import Footer from "../Footer"
-import { assets } from "@/data"
-import Image, { StaticImageData } from "next/image"
-import { useSelectYear } from "@/providers/SelectYearProvider"
-import { useMobileMenu } from "@/providers/MobileMenuProvider"
-
-// ParticlesBackground
-
-import { ParticlesBackground } from "@/components/ParticlesBackground"
-
-// motion
-import { motion } from "motion/react"
 
 
-const ShowHero = ({ year }: { year: number }) => {
+import Footer from "../Footer";
+import { CECHero } from "../HomePage/cec-hero";
 
-    const [source, setSource] = useState<StaticImageData | string>("")
-
-    useEffect(() => {
-        for (let i = 0; i < assets.length; i++) {
-            if (assets[i].id === year) {
-                setSource(assets[i].hero);
-                break;
-            } else {
-                setSource("/placeholder.svg");
-            }
-        }
-    }, [year]);
-
-    return <div className="w-[100%] h-[100%]">
-        <Image
-            src={source || "/placeholder.svg"}
-            alt="hero"
-            className="object-cover w-full h-full"
-            fill
-        />
-    </div>
-}
-
-export default function Home() {
-    const { isMobileMenuOpen, setIsMobileMenuOpen } = useMobileMenu();
-
-    const { year } = useSelectYear();
-
+export default function HomePage() {
     return (
-        <div className="min-h-screen bg-[#121212]">
-
-            <Header />
-
-            {isMobileMenuOpen && (
-                <div className="fixed inset-0 md:hidden" onClick={() => setIsMobileMenuOpen(false)} />
-            )}
-
-            {/* Hero Section */}
-            <section className="relative min-h-[600px] flex items-center justify-center">
-                <div className="absolute left-0 top-0 w-[100%] h-[100%] mt-9">
-                    <ShowHero year={year} />
-                    <ParticlesBackground />
-                    <div className="absolute inset-0 bg-dark-1" />
-                </div>
-
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
-                    className="relative z-10 max-w-4xl px-6 mx-auto text-center max-sm:mt-20">
-                    <motion.h1
-                        initial={{ opacity: 0, y: -20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="mb-6 text-4xl font-bold text-white md:text-6xl">
-                        Welcome to{" "}
-                        <span className="text-[#ffd60a] relative">
-                            CEC Club!
-                            <div className="absolute -bottom-2 left-0 right-0 h-1 bg-[#ffd60a]"></div>
-                        </span>
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: -20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="max-w-2xl mx-auto mb-12 text-xl text-white">
-                        Your hub for technology, innovation, and collaboration.
-                    </motion.p>
-
-                    {/* Statistics */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 0.6 }}
-                        className="flex flex-col items-center justify-center gap-8 md:flex-row md:gap-16">
-                        <motion.div
-                            initial={{ opacity: 0, y: -20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                            className="text-center">
-                            <div className="w-24 h-24 bg-[#ffd60a] rounded-full flex items-center justify-center mb-2 mx-auto">
-                                <span className="text-2xl font-bold text-black">50+</span>
-                            </div>
-                            <p className="font-semibold tracking-wider text-white">MEMBERS</p>
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, y: -20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.6 }}
-                            className="text-center">
-                            <div className="w-24 h-24 bg-[#ffd60a] rounded-full flex items-center justify-center mb-2 mx-auto">
-                                <span className="text-2xl font-bold text-black">20+</span>
-                            </div>
-                            <p className="font-semibold tracking-wider text-white">PROJECTS</p>
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, y: -20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.8 }}
-                            className="text-center">
-                            <div className="w-24 h-24 bg-[#ffd60a] rounded-full flex items-center justify-center mb-2 mx-auto">
-                                <span className="text-2xl font-bold text-black">15+</span>
-                            </div>
-                            <p className="font-semibold tracking-wider text-white">EVENTS</p>
-                        </motion.div>
-                    </motion.div>
-                </motion.div>
-            </section>
-
-            <Footer />
-        </div>
+        <main className="min-h-screen bg-[#121212]">
+            <CECHero />
+            <div className="-mt-9">
+                <Footer />
+            </div>
+        </main>
     )
 }
+

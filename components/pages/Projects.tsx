@@ -9,6 +9,7 @@ import { CECProjects, fakeProjectsInfo, ProjectsProps } from "@/data"
 import Link from "next/link"
 import { useSelectYear } from "@/providers/SelectYearProvider"
 import { useMobileMenu } from "@/providers/MobileMenuProvider"
+import { ProjectIdeaButton } from "../ProjectIdeaButton"
 
 const ShowProjects = ({ year }: { year: number }) => {
     const [projects, setProjects] = useState<ProjectsProps[]>([]);
@@ -42,7 +43,7 @@ const ShowProjects = ({ year }: { year: number }) => {
                 <h3 className="mb-3 text-xl font-bold text-white"> {title} </h3>
                 <p className="text-[#444444] mb-6 leading-relaxed"> {desc} </p>
                 {
-                    (src !== "/placeholder.svg") && <Link href={link}
+                    (src !== "/placeholder.svg") && <Link href={link} target="_blank"
                         className="w-full flex items-center justify-center gap-1 p-1 font-semibold bg-transparent border border-[#ffd60a] text-[#ffd60a] hover:bg-[#ffd60a] hover:text-black transition-colors">
                         <Code size={16} className="mr-2" />
                         View
@@ -87,6 +88,8 @@ export default function Projects() {
                     <ShowProjects year={year} />
                 </div>
             </section>
+
+            <ProjectIdeaButton />
 
             {/* Footer */}
             <Footer />

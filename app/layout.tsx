@@ -36,7 +36,7 @@ export default function RootLayout({
       <MobileMenuProvider>
         <SelectYearProvider>
           <LoaderProvider>
-            <html lang="en">
+            <html lang="en" suppressHydrationWarning>
               <body
                 className={`${geistSans.variable} ${geistMono.variable}  w-screen overflow-x-hidden md:mt-10`}
               >

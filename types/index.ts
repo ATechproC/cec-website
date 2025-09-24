@@ -91,5 +91,7 @@ export interface MobileMenuProps {
 
 export interface SelectYearProps {
     year : number;
+    currentYear : string;
+    setCurrentYear : React.Dispatch<SetStateAction<string>>
     setYear : React.Dispatch<SetStateAction<number>>
 }

@@ -12,7 +12,7 @@ const SelectYear = () => {
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const { setYear, year } = useSelectYear();
+    const { setYear, year, currentYear, setCurrentYear } = useSelectYear();
 
     const { setIsLoading } = useLoader();
 
@@ -20,15 +20,10 @@ const SelectYear = () => {
 
     return (
         <>
-            {/* <div
-                onClick={() => setIsOpen(false)}
-                className={cn("absolute top-0 hidden  max-sm:hidden left-0 w-[100%] h-screen",
-                    isOpen && "block"
-                )} /> */}
-            <div className="w-[150px] relative max-sm:hidden py-[6px] pl-5 font-semibold bg-[#ffd60a] hover:bg-[#ffd60a]/90 transition-colors  rounded-md cursor-pointer"
+            <div className="w-[150px] relative max-sm:hidden py-[6px] pl-9 font-semibold bg-[#ffd60a] hover:bg-[#ffd60a]/90 transition-colors  rounded-md cursor-pointer"
                 onClick={() => setIsOpen((prev) => !prev)}
-                >
-                <p>Switch Year</p>
+            >
+                <p> {currentYear} </p>
                 <FaAngleDown
                     className="absolute -translate-y-1/2 right-1 top-1/2"
                 />
@@ -38,41 +33,53 @@ const SelectYear = () => {
                         isOpen && "flex"
                     )}
                 >
-                    <span
-                        className={cn("bg-[#ffd60a] p-1 rounded-md text-center  hover:bg-[#ffd60a]/90 transition-colors",
-                            (year === 2025) && "text-white"
+                    <button
+                        className={cn("bg-[#ffd60a] p-1 rounded-md text-center ",
+                            year !== 2025 && "hover:bg-[#ffd60a]/90 transition-colors"
                         )}
                         onClick={() => {
                             setYear(2025);
-                            setIsLoading(true)
+                            setIsLoading(true);
+                            setCurrentYear("2024/2025");
                             setTimeout(() => {
                                 setIsLoading(false);
                                 setIsOpen(!isOpen);
                             }, 3000);
                         }}
+                        disabled={year === 2025}
                     >
-                        2025
-                    </span>
-                    <span
-                        className={cn("bg-[#ffd60a] p-1 rounded-md text-center  hover:bg-[#ffd60a]/90 transition-colors",
-                            (year === 2026) && "text-white"
+                        {
+                            currentYear === "2024/2025" ?
+                                <span className="text-gray-400"> Switched year</span>
+                                : <span className="text-white">2024/2025</span>
+                        }
+                    </button>
+                    <button
+                        className={cn("bg-[#ffd60a] p-1 rounded-md text-center",
+                            year !== 2026 && "hover:bg-[#ffd60a]/90 transition-colors"
                         )} onClick={() => {
                             setYear(2026);
-                            setIsLoading(true)
+                            setIsLoading(true);
+                            setCurrentYear("2025/2026");
                             setTimeout(() => {
                                 setIsLoading(false);
                                 setIsOpen(!isOpen);
                             }, 3000);
                         }}
+                        disabled={year === 2026}
                     >
-                        2026
-                    </span>
+                        {
+                            currentYear === "2025/2026" ?
+                                <span className="text-gray-400"> Switched year</span>
+                                : <span className="text-white">2025/2026</span>
+                        }
+                    </button>
                 </div>
             </div>
             {
                 isMobileMenuOpen && <div className="flex flex-col gap-3 text-gray-400 md:hidden">
                     <p className="text-main">switch year</p>
-                    <p className={`${year === 2025 ? "text-white" : "text-gray-400"} cursor-pointer`}
+                    <button className={`${year === 2025 ? "text-white" : "text-gray-400"} cursor-pointer text-start`}
                         onClick={() => {
                             setYear(2025)
                             setIsLoading(true)
@@ -81,8 +88,12 @@ const SelectYear = () => {
                                 setIsMobileMenuOpen(!isMobileMenuOpen)
                             }, 3000);
                         }
-                        }>2025</p>
-                    <p className={`${year === 2026 ? "text-white" : "text-gray-400"} cursor-pointer`}
+                        }
+                        disabled={year === 2025}
+                        >
+                            2025
+                            </button>
+                    <button className={`${year === 2026 ? "text-white" : "text-gray-400"} cursor-pointer text-start`}
                         onClick={() => {
                             setYear(2026)
                             setIsLoading(true)
@@ -91,7 +102,8 @@ const SelectYear = () => {
                                 setIsMobileMenuOpen(!isMobileMenuOpen)
                             }, 3000);
                         }}
-                    >2026</p>
+                        disabled={year === 2026}
+                    >2026</button>
                 </div>
             }
         </>

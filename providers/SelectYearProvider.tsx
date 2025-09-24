@@ -7,9 +7,11 @@ const SelectYearContext = createContext({} as SelectYearProps)
 
 const SelectYearProvider = ({children} : {children : React.ReactNode}) => {
 
-    const [year, setYear] = useState<number>(2025);
+    const [year, setYear] = useState<number>(2026);
 
-    return <SelectYearContext.Provider value={{year, setYear}} >
+    const [currentYear, setCurrentYear] = useState<string>("2025/2026");
+
+    return <SelectYearContext.Provider value={{year, setYear, currentYear, setCurrentYear}} >
         {children}
     </SelectYearContext.Provider>
 }

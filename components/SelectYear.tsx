@@ -91,7 +91,7 @@ const SelectYear = () => {
                         }
                         disabled={year === 2025}
                         >
-                            2025
+                            2024/2025
                             </button>
                     <button className={`${year === 2026 ? "text-white" : "text-gray-400"} cursor-pointer text-start`}
                         onClick={() => {
@@ -103,7 +103,7 @@ const SelectYear = () => {
                             }, 3000);
                         }}
                         disabled={year === 2026}
-                    >2026</button>
+                    >2025/2026</button>
                 </div>
             }
         </>

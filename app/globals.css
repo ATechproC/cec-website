@@ -17,6 +17,11 @@
     @apply w-[90%] mx-auto;
   }
 
+ svg {
+  fill: white;
+}
+
+
    /* animations */
 
   /* ======================= delete modal animation  */

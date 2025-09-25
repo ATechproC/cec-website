@@ -23,4 +23,4 @@ CEC CLUB is a dynamic student community dedicated to technology, innovation, and
 - shadcn
 - Tailwind CSS
 
-🔗 **Live Demo:** [Try it here](https://cec-website-sand.vercel.app/)
+🔗 **Live Demo:** [Try it here]([https://cec-website-sand.vercel.app/](https://cec-club.netlify.app/))

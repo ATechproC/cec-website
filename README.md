@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<p align="center">
+  <a href="https://cec-website-sand.vercel.app/" target="_blank">
+    <img src="./public/cec.jpg" width="600" style="border-radius:10px"/>
+  </a>
+</p>
 
-## Getting Started
+<p align="center">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/>&nbsp;&nbsp;&nbsp;
+   <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="40" height="40"/>&nbsp;&nbsp;&nbsp;
+   <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/>
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### CEC CLUB - Computer Engineering Club
+CEC CLUB is a dynamic student community dedicated to technology, innovation, and collaboration at the National School of Applied Sciences (ENSA). We serve as a hub for computer engineering students to connect, learn, and build together.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🚀 About Us
+Welcome to CEC Club - your premier destination for all things technology! We are a vibrant community of passionate students who share a common interest in coding, innovation, and collaborative projects. Our mission is to foster a supportive environment where members can develop their technical skills, work on real-world projects, and prepare for successful careers in technology.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 📊 Club Impact (2024/2025)
+50+ Active Members
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+20+ Completed Projects
 
-## Learn More
+15+ Successful Events
 
-To learn more about Next.js, take a look at the following resources:
+### 🎯 What We Offer
+#### 🤝 Community & Networking
+Connect with like-minded computer engineering students
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Collaborate on innovative projects
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Build lasting professional relationships
 
-## Deploy on Vercel
+### 💡 Learning & Development
+Technical workshops and coding sessions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Hackathons and problem-solving competitions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Guest lectures from industry professionals
+
+### 🚀 Project Opportunities
+Hands-on experience with real-world applications
+
+Team-based project development
+
+Mentorship from senior members and faculty
+
+### 🎉 Events & Activities
+Regular tech talks and seminars
+
+Annual hackathons and coding competitions
+
+Social events and networking mixers
+
+### 🛠️ Technologies & Focus Areas
+Web & Mobile Development
+
+Data Science & Artificial Intelligence
+
+Software Engineering
+
+UI/UX Design
+
+Project Management
+
+### 👥 Leadership Team
+Our club is led by dedicated students who are passionate about technology and community building. The team includes positions such as President, Vice President, Secretary General, Treasurer, and various department managers overseeing events, training, multimedia, and design.
+
+### 🌟 Join Our Community
+Ready to be part of something amazing? Whether you're a beginner looking to learn or an experienced coder wanting to contribute, CEC CLUB welcomes all students interested in technology and innovation.
+
+Get involved today and start your journey with us! 
+
+🔗 **Live Demo:** [Try it here](https://cec-website-sand.vercel.app/)

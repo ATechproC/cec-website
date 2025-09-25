@@ -7,8 +7,7 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/>&nbsp;&nbsp;&nbsp;
 <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" 
-     alt="nextjs" width="40" height="40" 
-     style="filter: invert(1);" />
+     alt="nextjs" width="40" height="40"/>
 &nbsp;&nbsp;&nbsp;
    <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/>
 
